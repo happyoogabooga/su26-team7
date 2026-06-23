@@ -4,6 +4,6 @@
 
 ## Team Members
 
-> Mack McCall
-
 > Jerry Moyer
+
+> Mack McCall
