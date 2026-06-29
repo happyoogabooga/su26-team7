@@ -14,8 +14,8 @@
 
 **Glossary** Terms used in the project
 
-- **Term 1:** description.
-- **Term 2:** description
+- **Schedule:** display of classes a student is enrolled in.
+- **Student** A user that is enrolled in classes.
 
 **Primary Users / Roles.**
 
@@ -25,14 +25,23 @@
 
 **Scope (this semester).**
 
-- <capability 1>
-- <capability 2>
-- <capability 3>
+- <Accout creation>
+- <User login>
+- <Class creation, editing, and deletion>
+- <Class add, drop>
+- <Display Schedule>
+- <Display available classes>
+- <Display roster>
+- <Class questions dependencies>
 
 **Out of scope (deferred).**
 
-- <deferred 1>
-- <deferred 2>
+- <Student hour limits>
+- <Class conflict resolution>
+- <Class filtering>
+- <Class schedule calendar layout>
+- <Class dropdown menu>
+- <Is class full?>
 
 > This document is **requirements‑level** and solution‑neutral; design decisions (UI layouts, API endpoints, schemas) are documented separately.
 
@@ -42,27 +51,62 @@
 
 Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`.** Each story includes at least one **Given/When/Then** scenario.
 
-### 2.1 Customer Stories
+### 2.1 Student Stories
 
-- **US‑1 — <short title>**  
-  _Story:_ As a customer, I want … so that …  
+- **US‑2 — <Student account creation>**  
+  _Story:_ As a student I want to create and update my account so that I can access my account.
   _Acceptance:_
-
     ```gherkin
-    Scenario: <happy path>
-      Given <preconditions>
-      When  <action>
-      Then  <observable outcome>
+    Scenario: Student account creation
+      Given I am in the loggin screen
+      When I click a sign up button
+      Then I should be able to create a student account
     ```
 
-- **US‑2 — <short title>**  
-  _Story:_ As a customer, I want … so that …  
+- **US‑4 — <Student add and drop>**  
+  _Story:_ As a student I want to be able to add and drop classes so I can manage what classes I take.
   _Acceptance:_
+
     ```gherkin
-    Scenario: <happy path>
-      Given <preconditions>
-      When  <action>
-      Then  <observable outcome>
+    Scenario: Student add and drop classes
+      Given I am logged in as a student
+      When select add
+      Then The class will be added to my schedule
+      And when I select drop
+      Then  The class in question should be dropped from my schedule
+    ```
+
+- **US‑5 — <Student class questions>**  
+  _Story:_ As a student I want to ask questions about the classes I pick so that I understand what is offered.
+  _Acceptance:_
+
+    ```gherkin
+    Scenario: Student class questions
+      Given I have enrolled in a class
+      When I select the ask questions option under details
+      Then  I should be able to ask questiona bout the class
+    ```
+
+- **US‑7 — <Student schedule>**  
+  _Story:_ As a student I want to view my schedule of classes so that I know what I am taking.
+  _Acceptance:_
+
+    ```gherkin
+    Scenario: Student Schedule
+      Given I am logged in as a student
+      When I am on the schedule tab
+      Then I should be able to view my schedule
+    ```
+
+- **US‑9 — <Student class full>**  
+  _Story:_ As a student I want to know if a class is full so that I know if I can enroll.
+  _Acceptance:_
+
+    ```gherkin
+    Scenario: Student class full
+      Given I am logged in as a student
+      When  I view my classes in the schedule viewing tab
+      Then  I should be able to view how many more seats a class has open
     ```
 
 ### 2.2 Provider Stories
@@ -115,16 +159,17 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
 
 ## 3. Non‑Functional Requirements (make them measurable)
 
-- **Performance:** description
-- **Availability/Reliability:** description
-- **Security/Privacy:** description
-- **Usability:** description
+- **Performance:** 95% of discovery responses should be returned in < 4 seconds under typical load.
+- **Availability/Reliability:** The system should be availiable 99% of the time.
+- **Security/Privacy:** The system must implement secure authentication and authorization mechanisms. All sensitive data should be encrypted in transit and at rest.
+- **Usability:** New users should be able to sign up within 5 minutes.
 
 ---
 
 ## 4. Assumptions, Constraints, and Policies
 
-- list any rules, policies, assumptions, etc.
+- Modern Browsers(atest Chrome/Firefox/Edge/Safari); stable connectivity.
+- Website must be finished by July 23rd 2026
 
 ---
 
