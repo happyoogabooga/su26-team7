@@ -1,0 +1,75 @@
+/*nav*/
+.logo{
+    margin-right: auto;
+}
+.container{
+    display:block;
+    margin: 20px 15% 20px;
+}
+.navbar{
+    display:flex;
+    width:100%;
+}
+.navbar ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:flex;
+}
+li{
+    display:inline-block;
+    padding-left:20px;
+    padding-right:20px;
+}
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+/*end of nav section*/
+/*profile*/
+.card{
+    margin: 10px 30px 10px;
+    width:80%;
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+}
+.card_body{
+    display:block;
+    margin: 20px 5px 20px;
+}
+.card_body_grid{
+    padding: 10px 10px 10px;
+    font-size:larger;
+    display:grid;
+    grid-template-columns: auto auto;
+    row-gap:50px;
+    margin-bottom:10px;
+}
+.btn_outline{
+    display:block;
+    background-color:white;
+    padding: 10px 5px 10px;
+    border-radius:5px;
+    border: 1px solid black;
+    color:black;
+}
+.btn_outline:hover{
+    cursor:pointer;
+    box-shadow: 5px 10px;
+}
+.card_head{
+    background-color:lightgrey;
+    padding: 5px 10px 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.formstyle{
+    display:block;
+    margin-bottom: 16px;
+}
+
+.formLabel,
+.formcontrol{
+    display:block;
+}
