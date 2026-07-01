@@ -10,7 +10,7 @@
 
 ## 1. Overview
 
-**Vision.** One or two sentences: who this is for, the core problem, and the outcome.
+**Vision.** Schedule Sidekick is the solution to class scheduling woes. Students can easily sign up for classes, drop classes, and see their schedule for the semester. Teachers can offer classes and manage class rosters with ease. Schedule Sidekick takes the hassle out of registration by giving a simple, unified interface for students and teachers alike.
 
 **Glossary** Terms used in the project
 
@@ -111,48 +111,47 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
 
 ### 2.2 Provider Stories
 
-- **US-20 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
+- **US-1 — Create and update teacher account**  
+  _Story:_ As a teacher, I want to create and update my account, so that I can access my account.
   _Acceptance:_
 
     ```gherkin
-    Scenario: <happy path>
-      Given <preconditions>
-      When  <action>
-      Then  <observable outcome>
+    Scenario: Create and update teacher account
+      Given I do not have an account
+      When  I provide my details and submit the form
+      Then  the account should be visible to me
     ```
 
-- **US-21 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
+- **US-3 — Create class sessions**  
+  _Story:_ As a teacher, I want to create class sessions, so that I can offer classes.
   _Acceptance:_
+
     ```gherkin
-    Scenario: <happy path>
-      Given <preconditions>
-      When  <action>
-      Then  <observable outcome>
+    Scenario: Create class sessions
+      Given I have a class I want to offer
+      When  I provide the class details and submit the form
+      Then  the class should be open for students
     ```
 
-### 2.3 SysAdmin Stories
-
-- **US‑30 — <short title>**  
-  _Story:_ As a sysadmin, I want … so that …  
+- **US-6 — Respond to student questions**  
+  _Story:_ As a teacher, I want to respond to student questions, so that students get answers about the class.
   _Acceptance:_
 
     ```gherkin
-    Scenario: <happy path>
-      Given <preconditions>
-      When  <action>
-      Then  <observable outcome>
+    Scenario: Respond to student questions
+      Given A student has asked a question
+      When  I input an answer for the question
+      Then  the answer should appear under the question asked.
     ```
 
-- **US‑31 — <short title>**  
-  _Story:_ As a sysadmin, I want … so that …  
+- **US-8 — View class rosters**  
+  _Story:_ As a teacher, I want to view the roster of students in each class, so that I know who is taking them.
   _Acceptance:_
     ```gherkin
-    Scenario: <happy path>
-      Given <preconditions>
-      When  <action>
-      Then  <observable outcome>
+    Scenario: View class rosters
+      Given I have a class with students registered
+      When  I select the class roster
+      Then  the list of students enrolled should appear.
     ```
 
 ---
