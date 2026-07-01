@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Schedule Sidekick - Teacher Dashboard</title>
+        <link rel="stylesheet" href="teacher-dashboard.css" />
+    </head>
+    <body>
+        <nav>
+            <h2>Schedule Sidekick</h2>
+
+            <ul>
+                <li><a href="/high-fidelity-prototype/index.html">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li>
+                    <a href="/high-fidelity-prototype/index.html">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <header>
+            <h1>Teacher Dashboard</h1>
+            <p>Welcome back, Professor John Smith</p>
+        </header>
+
+        <main>
+            <section class="profile-card">
+                <div>
+                    <h2>My Profile</h2>
+                    <p><strong>Name:</strong> John Smith</p>
+                    <p><strong>Department:</strong> Computer Science</p>
+                    <p><strong>Email:</strong> jsmith@uncg.edu</p>
+                    <p><strong>Office:</strong> Petty Building 214</p>
+                </div>
+
+                <div>
+                    <a href="create-teacher.html" class="button"
+                        >Edit Profile</a
+                    >
+                </div>
+            </section>
+
+            <section class="classes">
+                <div class="section-header">
+                    <h2>My Classes</h2>
+
+                    <a
+                        href="/high-fidelity-prototype/teacher/create-course.html"
+                        class="button"
+                    >
+                        + Create New Class
+                    </a>
+                </div>
+
+                <div class="class-grid">
+                    <div class="class-card">
+                        <h3>CSC 101</h3>
+                        <p>Introduction to Computer Science</p>
+                        <p>Section 001</p>
+                        <p>24 / 30 Students</p>
+
+                        <a href="view-roster.html" class="button small">
+                            View Roster
+                        </a>
+                    </div>
+
+                    <div class="class-card">
+                        <h3>CSC 230</h3>
+                        <p>Web Development</p>
+                        <p>Section 002</p>
+                        <p>28 / 30 Students</p>
+
+                        <a href="view-roster.html" class="button small">
+                            View Roster
+                        </a>
+                    </div>
+
+                    <div class="class-card">
+                        <h3>CSC 330</h3>
+                        <p>Data Structures</p>
+                        <p>Section 001</p>
+                        <p>29 / 30 Students</p>
+
+                        <a href="view-roster.html" class="button small">
+                            View Roster
+                        </a>
+                    </div>
+
+                    <div class="class-card">
+                        <h3>CSC 340</h3>
+                        <p>Software Engineering</p>
+                        <p>Section 001</p>
+                        <p>22 / 30 Students</p>
+
+                        <a href="view-roster.html" class="button small">
+                            View Roster
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
