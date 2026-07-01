@@ -16,32 +16,34 @@
 
 - **Schedule:** display of classes a student is enrolled in.
 - **Student** A user that is enrolled in classes.
+- **Teacher:** The instructor/professor who is offering.
+- **Profile:** A collection of information about a user, including personal details, fitness goals, and preferences.
+- **Class:** The specific meeting between a teacher and students where material is taught.
 
 **Primary Users / Roles.**
 
-- **Customer (e.g., Student/Patient/Pet Owner/etc. )** — 1 line goal statement.
-- **Provider (e.g., Teacher/Doctor/Pet Sitter/etc. )** — 1 line goal statement.
-- **SysAdmin (optional)** — 1 line goal statement.
+- **Student** — Enroll in classes and manage schedule.
+- **Teacher** — Offer classes to students.
 
 **Scope (this semester).**
 
-- <Accout creation>
-- <User login>
-- <Class creation, editing, and deletion>
-- <Class add, drop>
-- <Display Schedule>
-- <Display available classes>
-- <Display roster>
-- <Class questions dependencies>
+- Accout creation
+- User login
+- Class creation, editing, and deletion
+- Class add, drop
+- Display Schedule
+- Display available classes
+- Display roster
+- Class questions dependencies
 
 **Out of scope (deferred).**
 
-- <Student hour limits>
-- <Class conflict resolution>
-- <Class filtering>
-- <Class schedule calendar layout>
-- <Class dropdown menu>
-- <Is class full?>
+- Student hour limits
+- Class conflict resolution
+- Class filtering
+- Class schedule calendar layout
+- Class dropdown menu
+- Is class full?
 
 > This document is **requirements‑level** and solution‑neutral; design decisions (UI layouts, API endpoints, schemas) are documented separately.
 
@@ -49,13 +51,12 @@
 
 ## 2. Functional Requirements (User Stories)
 
-Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`.** Each story includes at least one **Given/When/Then** scenario.
-
 ### 2.1 Student Stories
 
-- **US‑2 — <Student account creation>**  
+- **US‑2 — Student account creation**  
   _Story:_ As a student I want to create and update my account so that I can access my account.
   _Acceptance:_
+
     ```gherkin
     Scenario: Student account creation
       Given I am in the loggin screen
@@ -63,7 +64,7 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
       Then I should be able to create a student account
     ```
 
-- **US‑4 — <Student add and drop>**  
+- **US‑4 — Student add and drop**  
   _Story:_ As a student I want to be able to add and drop classes so I can manage what classes I take.
   _Acceptance:_
 
@@ -76,7 +77,7 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
       Then  The class in question should be dropped from my schedule
     ```
 
-- **US‑5 — <Student class questions>**  
+- **US‑5 — Student class questions**  
   _Story:_ As a student I want to ask questions about the classes I pick so that I understand what is offered.
   _Acceptance:_
 
@@ -87,7 +88,7 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
       Then  I should be able to ask questiona bout the class
     ```
 
-- **US‑7 — <Student schedule>**  
+- **US‑7 — Student schedule**  
   _Story:_ As a student I want to view my schedule of classes so that I know what I am taking.
   _Acceptance:_
 
@@ -98,7 +99,7 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
       Then I should be able to view my schedule
     ```
 
-- **US‑9 — <Student class full>**  
+- **US‑9 — Student class full**  
   _Story:_ As a student I want to know if a class is full so that I know if I can enroll.
   _Acceptance:_
 
@@ -167,7 +168,7 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
 
 ## 4. Assumptions, Constraints, and Policies
 
-- Modern Browsers(atest Chrome/Firefox/Edge/Safari); stable connectivity.
+- Modern Browsers(latest Chrome/Firefox/Edge/Safari); stable connectivity.
 - Website must be finished by July 23rd 2026
 
 ---
