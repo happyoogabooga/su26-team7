@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "StyleSheet" href = "Styles.css">
+    </head>
+    <body>
+        <nav>
+            <div class = "navbar">
+                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
+                <ul class = "navlinks">
+                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
+                    <li> <a href = "course_catalog.html" style = "color:white">Course catalog</a>
+                    <li> <a href = "profile.html" style = "color:white">Profile</a>
+                    <li> <a href = "login.html" style = "color:white">LogOut</a>
+                </ul>
+            </div>
+        </nav>
+        <div class = "container">
+            <h1 style = "text-align:center">Course Catalog</h1>
+            <hr>
+            <div class = "card">
+                <div class = "card_head">
+                    <h1>Search for a Class!</h1>
+                </div>
+                <div class = "card_body">
+                    <!--Different searching methods can be used in these different divs(search by subject, search by proffessor etc)-->
+                    <form id = "courseCatalog">
+                        <div style = "display:block; margin-bottom:15px">
+                            <label for = "subject" class = "formLabel">Search by subject</label>
+                            <select name = "subject" id = "subject">
+                                <option value = "None" class = "dropdown_options">None</option>
+                                <option value = "CSC">CSC</option>
+                                <option value = "MAT">MAT</option>
+                                <option value = "ENGLISH">ENGLISH</option>
+                            </select>
+                        </div>
+                        <div style = "display:block; margin-bottom:15px">
+                            <label for = "Instuctor" class = "formLabel">Search by Instructor</label>
+                            <select name = "Instructor" id = "Instructor">
+                                <option value = "None">None</option>
+                                <option value = "Sunny_Ntini">Sunny Ntini</option>
+                                <option value = "Chandana Ariyawansa">Chandana Ariyawansa</option>
+                                <option value = "Shivani Reddi Palley">Shivani Palley</option>
+                            </select>
+                        </div>
+                        <!--later on update this to show how many students the class has, basically instead of csc being in there for example, make it a div-->
+                        <div style = "display:block; margin-bottom:15px">
+                            <label for = "Classes" class = "formLabel">Search for Classes</label>
+                            <select name = "Classes" id = "Classes">
+                                <option value = "none">None</option>
+                                <option value = "csc350">CSC 350</option>
+                                <option value = "csc340">CSC 340</option>
+                                <option value = "csc471">CSC 471</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
