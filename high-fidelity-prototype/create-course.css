@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #333;
+}
+
+header {
+    background: #2d5be3;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    width: 700px;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+    margin-bottom: 25px;
+    color: #2d5be3;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+textarea {
+    resize: none;
+}
+
+.checkboxes {
+    display: flex;
+    gap: 25px;
+    margin-top: 5px;
+}
+
+.checkboxes label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.cancel {
+    background: #d9d9d9;
+}
+
+.create {
+    background: #2d5be3;
+    color: white;
+}
+
+.create:hover {
+    background: #2348b6;
+}
+
+.cancel:hover {
+    background: #c5c5c5;
+}
