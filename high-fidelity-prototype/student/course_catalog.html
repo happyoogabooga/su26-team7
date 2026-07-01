@@ -10,14 +10,16 @@
                 <ul class = "navlinks">
                     <li> <a href = "schedule.html" style = "color:white">Schedule</a>
                     <li> <a href = "course_catalog.html" style = "color:white">Course catalog</a>
+                        <li> <a href = "Current_courses.html" style = "color:white">Current Courses</a></li>
                     <li> <a href = "profile.html" style = "color:white">Profile</a>
                     <li> <a href = "login.html" style = "color:white">LogOut</a>
                 </ul>
             </div>
         </nav>
+        <header>
+            <h1>Course Catalog</h1>
+        </header>
         <div class = "container">
-            <h1 style = "text-align:center">Course Catalog</h1>
-            <hr>
             <div class = "card">
                 <div class = "card_head">
                     <h1>Search for a Class!</h1>
@@ -26,7 +28,7 @@
                     <!--Different searching methods can be used in these different divs(search by subject, search by proffessor etc)-->
                     <form id = "courseCatalog">
                         <div style = "display:block; margin-bottom:15px">
-                            <label for = "subject" class = "formLabel">Search by subject</label>
+                            <label for = "subject" class = "formLabel">Filter by subject</label>
                             <select name = "subject" id = "subject">
                                 <option value = "None" class = "dropdown_options">None</option>
                                 <option value = "CSC">CSC</option>
@@ -35,23 +37,40 @@
                             </select>
                         </div>
                         <div style = "display:block; margin-bottom:15px">
-                            <label for = "Instuctor" class = "formLabel">Search by Instructor</label>
+                            <label for = "Instuctor" class = "formLabel">Filter by Instructor</label>
                             <select name = "Instructor" id = "Instructor">
                                 <option value = "None">None</option>
                                 <option value = "Sunny_Ntini">Sunny Ntini</option>
-                                <option value = "Chandana Ariyawansa">Chandana Ariyawansa</option>
-                                <option value = "Shivani Reddi Palley">Shivani Palley</option>
+                                <option value = "Chandana_Ariyawansa">Chandana Ariyawansa</option>
+                                <option value = "Shivani_Reddi_Palley">Shivani Palley</option>
+                                <option value = "Parth_Upadhyay">Parth Upadhyay</option>
                             </select>
                         </div>
                         <!--later on update this to show how many students the class has, basically instead of csc being in there for example, make it a div-->
                         <div style = "display:block; margin-bottom:15px">
                             <label for = "Classes" class = "formLabel">Search for Classes</label>
-                            <select name = "Classes" id = "Classes">
-                                <option value = "none">None</option>
-                                <option value = "csc350">CSC 350</option>
-                                <option value = "csc340">CSC 340</option>
-                                <option value = "csc471">CSC 471</option>
-                            </select>
+                            <div class = "course_options_list" id = "Classes">
+                                <div class = "course_option_row">
+                                    <div class = "course_option_title">CSC 350</div>
+                                    <div class = "course_option_detail">Professor: Chandana Ariyawansa</div>
+                                    <div class = "course_option_detail">Seats Open: 18</div>
+                                </div>
+                                <div class = "course_option_row">
+                                    <div class = "course_option_title">CSC 340</div>
+                                    <div class = "course_option_detail">Professor: Sunny Ntini</div>
+                                    <div class = "course_option_detail">Seats Open: 12</div>
+                                </div>
+                                <div class = "course_option_row">
+                                    <div class = "course_option_title">CSC 471</div>
+                                    <div class = "course_option_detail">Professor:Parth Upadhyay</div>
+                                    <div class = "course_option_detail">Seats Open: 9</div>
+                                </div>
+                                <div class = "course_option_row">
+                                    <div class = "course_option_title">Mat 310</div>
+                                    <div class = "course_option_detail">Professor:Thomas Weighill</div>
+                                    <div class = "course_option_detail">Seats Open: 3</div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
