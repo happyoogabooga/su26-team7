@@ -82,7 +82,8 @@ a, a:visited, a:hover, a:active {
     box-shadow: 5px 10px;
 }
 .card_head{
-    background-color:lightgrey;
+    background-color:#2d5be3;
+    color:white;
     padding: 5px 10px 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

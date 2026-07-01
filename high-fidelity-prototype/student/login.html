@@ -6,34 +6,30 @@
     <body>
         <nav>
             <div class = "navbar">
-                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
-                <ul class = "navlinks">
-                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
-                    <li> <a href = "course_catalog.html" style = "color:white">Course catalog</a>
-                    <li> <a href = "profile.html" style = "color:white">Profile</a>
-                    <li> <p>logout</p>
-                </ul>
+                <a href = "../index.html" class = "logo">Schedule Sidekick</a>
             </div>
         </nav>
         <div class = "container">
-            <div class = "card_head">
-                <h1>Student Sign up</h1>
-            </div>
-            <div class = "card_body">
-                <form id = "studentLogin">
-                    <div class = "formstyle">
-                        <label for = "email" class = "formLabel">Email*</label>
-                        <input type = "text" id = "studentEmail" required class = "formcontrol" placeholder = "e.g., jerry.moyer@gmail.com">
-                        <small>Please provide your <small style = "color:red; font-size:small">student email</small></small>
-                    </div>
-                    <div class = "formstyle">
-                        <label for = "password" class = "formLabel">Password*</label>
-                        <input type = "password" id = "studentPassword" required class = "formcontrol">
-                    </div>
-                    <div class = "formstyle">
-                        <input type = "submit" class = "formSubmit">
-                    </div>
-                </form>
+            <div class = "card">
+                <div class = "card_head">
+                    <h1>Student Sign up</h1>
+                </div>
+                <div class = "card_body">
+                    <form id = "studentLogin" action="schedule.html" method="get">
+                        <div class = "formstyle">
+                            <label for = "email" class = "formLabel">Email*</label>
+                            <input type = "text" id = "studentEmail" required class = "formcontrol" placeholder = "e.g., jerry.moyer@gmail.com">
+                            <small>Please provide your <small style = "color:red; font-size:small">student email</small></small>
+                        </div>
+                        <div class = "formstyle">
+                            <label for = "password" class = "formLabel">Password*</label>
+                            <input type = "password" id = "studentPassword" required class = "formcontrol">
+                        </div>
+                        <div class = "formstyle">
+                            <input type = "submit" class = "formSubmit" value="Continue">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </body>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "StyleSheet" href = "Styles.css"> 
+    </head>
+    <body>
+        <nav>
+            <div class = "navbar">
+                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
+                <ul class = "navlinks">
+                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
+                    <li> <a href = "course_catalog.html" style = "color:white">Course catalog</a>
+                    <li> <a href = "profile.html" style = "color:white">Profile</a>
+                    <li> <a href = "login.html" style = "color:white">LogOut</a>
+                </ul>
+            </div>
+        </nav>
+        <div class = "container">
+            <div class = "card">
+                <div class = "card_head">
+                    <h1>About this class</h1>
+                </div>
+                <div class = "card_body">
+                    <!--course location-->
+                    <div>
+                        <p style = "margin-top:0">Name: Linear Algebra</p>
+                    </div>
+                    <div>
+                        <p>Location: Petty 007</p>
+                    </div>
+                    <div>
+                        <p>Time: 8:30 - 9:15</p>
+                    </div>
+                </div>
+            </div>
+            <div class = "card">
+                <div class = "card_head">
+                    <h1>Questions About This Class</h1>
+                </div>
+                <div class = "card_body">
+                    <form method = "post" id = "courseQuestions">
+                        <div class = "formstyle">
+                            <label for = "courseQustions" class = "formLabel">Ask a Question</label>
+                            <textarea id = "shortDescription" name = "shortDescription" placeholder = "Ask a question about this class." rows = "3" required class = "formcontrol"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -6,13 +6,7 @@
     <body>
         <nav>
             <div class = "navbar">
-                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
-                <ul class = "navlinks">
-                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
-                    <li> <a href = "course_catalog.html" style = "color:white">Course catalog</a>
-                    <li> <a href = "profile.html" style = "color:white">Profile</a>
-                    <li> <p>logout</p>
-                </ul>
+                <a href = "../index.html" class = "logo">Schedule Sidekick</a>
             </div>
         </nav>
         <div class = "container">
@@ -20,7 +14,7 @@
                 <h1>Student Sign up</h1>
             </div>
             <div class = "card_body">
-                <form id = "studentLogin">
+                <form id = "studentLogin" action = "schedule.html">
                     <div class = "formstyle">
                         <label for = "firstName" class = "formLabel">First Name*</label>
                         <input type = "text" id = "studentFirstName" required class = "formcontrol" placeholder = "e.g., Jerry">
@@ -41,7 +35,7 @@
                         <input type = "password" id = "studentPassword" required class = "formcontrol">
                     </div>
                     <div class = "formstyle">
-                        <input type = "submit" class = "formSubmit">
+                        <input type = "submit" class = "formSubmit" value = "continue">
                     </div>
                 </form>
             </div>
