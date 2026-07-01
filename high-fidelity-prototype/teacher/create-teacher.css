@@ -80,17 +80,17 @@ button {
     font-size: 15px;
 }
 
-button a {
-    color: white;
+.cancel {
+    background: #d9d9d9;
+}
+
+.cancel a {
+    color: black;
     text-decoration: none;
 }
 
-button a:visited {
-    color: white;
-}
-
-.cancel {
-    background: #d9d9d9;
+.cancel a:visited {
+    color: black;
 }
 
 .cancel:hover {
@@ -99,6 +99,15 @@ button a:visited {
 
 .create {
     background: #2d5be3;
+    color: white;
+}
+
+.create a {
+    color: white;
+    text-decoration: none;
+}
+
+.create a:visited {
     color: white;
 }
 
