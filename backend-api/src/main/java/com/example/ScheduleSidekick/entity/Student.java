@@ -14,7 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "Students")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -45,6 +45,4 @@ public class Student {
         this.classYear = classYear;
         this.enrolledHours = enrolledHours;
     }
-    @OneToMany(mappedBy = "Student")
-    private List<Enrollment> enrollment;
 }
