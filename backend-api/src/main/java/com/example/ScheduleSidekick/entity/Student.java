@@ -2,6 +2,8 @@ package com.example.ScheduleSidekick.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -45,4 +47,12 @@ public class Student {
         this.classYear = classYear;
         this.enrolledHours = enrolledHours;
     }
+    //enrollments might be a good idea to add, but sadly it make make this whole thing circular
+    //A student can be enrolled in many classes.
+    //add all of the lists later.
+
+    @OneToMany(mappedBy= "Student")
+    @JsonIgnoreProperties({"Student"})
+    //enrollments may not persists(at one some time a class can be dropped)
+    private List<Enrollment> enrollment;
 }
