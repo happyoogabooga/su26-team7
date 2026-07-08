@@ -18,11 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.ScheduleSidekick.service.StudentService;
 import com.example.ScheduleSidekick.entity.Student;
 
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.tags.form.RadioButtonsTag;
-
-import jakarta.persistence.Entity;
-
 
 @RestController
 @RequestMapping("/api/students")

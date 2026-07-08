@@ -2,8 +2,9 @@ package com.example.ScheduleSidekick.entity;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -31,7 +32,7 @@ public class Enrollment {
     //These are placeholders, I will join them later, Just want to make sure they can work on their own first
     @ManyToOne
     @JsonIgnoreProperties({"Enrollment"})
-    @JoinColumn(nullable = false)
+    @JoinColumn
     private Student student;
     
     public Enrollment(Student student){

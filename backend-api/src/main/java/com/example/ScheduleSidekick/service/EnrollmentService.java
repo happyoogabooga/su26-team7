@@ -15,11 +15,11 @@ public class EnrollmentService {
         this.enrollmentRepository = enrollmentRepository;
     }
     //I need to post and enrollement after every sign in
-    public List<Enrollment> getEnrollmentByStudentId(long id){
+    public List<Enrollment> getEnrollmentsByStudentId(long id){
         return enrollmentRepository.findByStudentId(id);
     }
     public Enrollment getByEnrollmentId(long Id){
-        return enrollmentRepository.findbyEnrollmentId(Id);
+        return enrollmentRepository.findByEnrollmentId(Id);
     }
     //place to find by class ID
     public Enrollment createEnrollment(Enrollment enrollment){
@@ -28,5 +28,5 @@ public class EnrollmentService {
     public void deleteEnrollment(long id){
         enrollmentRepository.deleteById(id);
     }
-    
+
 }

@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long studentId;
+    long id;
 
     @Column(nullable = false)
     String name;
@@ -51,8 +51,8 @@ public class Student {
     //A student can be enrolled in many classes.
     //add all of the lists later.
 
-    @OneToMany(mappedBy= "Student")
-    @JsonIgnoreProperties({"Student"})
+    @OneToMany(mappedBy = "student")
+    @JsonIgnoreProperties({"student"})
     //enrollments may not persists(at one some time a class can be dropped)
     private List<Enrollment> enrollment;
 }
