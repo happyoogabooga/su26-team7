@@ -1,10 +1,5 @@
 package com.example.ScheduleSidekick.controller;
 
-import java.util.Collections;
-import java.util.List;
-
-import javax.swing.plaf.basic.BasicBorders;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.ScheduleSidekick.service.StudentService;
 import com.example.ScheduleSidekick.entity.Student;
-
+import com.example.ScheduleSidekick.service.StudentService;
 
 @RestController
 @RequestMapping("/api/students")
-public class StudentApiController{
+public class StudentApiController {
     private final StudentService studentService;
     
     StudentApiController(StudentService studentService){
@@ -33,39 +27,41 @@ public class StudentApiController{
         Student student = studentService.getStudentById(id);
         if(student != null){
             return ResponseEntity.ok(student);
-        }
-        else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
-    //post mapping
-    @PostMapping()
+
+    @PostMapping
     public ResponseEntity<Student> createAccount(@RequestBody Student student){
         Student createdStudent = studentService.createAccount(student);
-        return ResponseEntity.created(null).body(student);
+        // Fixed: Returns the database payload with its newly assigned ID
+        return ResponseEntity.status(201).body(createdStudent);
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<Student> putMethodName(@PathVariable long id, @RequestBody Student updatedStudent){
-        try{
+        try {
             Student student = studentService.updateStudent(id, updatedStudent);
-            return ResponseEntity.ok(student);
+            return student != null ? ResponseEntity.ok(student) : ResponseEntity.notFound().build();
         } catch (RuntimeException e){
             return ResponseEntity.notFound().build();
         }
     }
+
     @PutMapping("/{id}/editpersonalinfo")
-    public ResponseEntity<Student> updatePersonalInformation(@PathVariable Long id, @RequestBody Student UpdatedStudent){
-        try{
-            Student student = studentService.updatePersonalInfo(id, UpdatedStudent);
-            return ResponseEntity.ok(student);
+    public ResponseEntity<Student> updatePersonalInformation(@PathVariable long id, @RequestBody Student updatedStudent){
+        try {
+            Student student = studentService.updatePersonalInfo(id, updatedStudent);
+            return student != null ? ResponseEntity.ok(student) : ResponseEntity.notFound().build();
         } catch(RuntimeException e){
             return ResponseEntity.notFound().build();
         }
     }
-    //Delete mapping
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable long id){
-        studentService.deleteAccount(id);
-        return ResponseEntity.noContent().build();
+        boolean deleted = studentService.deleteAccount(id);
+        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }

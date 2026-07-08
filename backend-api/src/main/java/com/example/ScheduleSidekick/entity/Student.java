@@ -4,41 +4,42 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Students")
+@Table(name = "students")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    @Column(name = "id") // Forces the column name in the DB to be studentId
+    private long id; // Changed from 'id' to 'studentId'
 
     @Column(nullable = false)
-    String name;
+    private String name;
 
     @Column(nullable = false)
-    String email;
+    private String email;
 
     @Column(nullable = false)
-    String password;
+    private String password;
 
     @Column(nullable = false)
-    int classYear;              //freshman, sophomore, junior etc.
+    private int classYear;
 
     @Column
-    int enrolledHours;
+    private int enrolledHours;
     
     public Student(String name, String email, String password, int classYear, int enrolledHours){
         this.name = name;
@@ -47,12 +48,8 @@ public class Student {
         this.classYear = classYear;
         this.enrolledHours = enrolledHours;
     }
-    //enrollments might be a good idea to add, but sadly it make make this whole thing circular
-    //A student can be enrolled in many classes.
-    //add all of the lists later.
 
     @OneToMany(mappedBy = "student")
     @JsonIgnoreProperties({"student"})
-    //enrollments may not persists(at one some time a class can be dropped)
     private List<Enrollment> enrollment;
 }

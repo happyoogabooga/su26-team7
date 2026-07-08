@@ -1,25 +1,17 @@
 package com.example.ScheduleSidekick.controller;
 
-import java.util.Collections;
 import java.util.List;
 
-import javax.swing.plaf.basic.BasicBorders;
-
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.ScheduleSidekick.service.EnrollmentService;
 import com.example.ScheduleSidekick.entity.Enrollment;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
+import com.example.ScheduleSidekick.service.EnrollmentService;
 
 @RestController
 @RequestMapping("/api/enrollments")
@@ -29,19 +21,22 @@ public class EnrollmentApiController {
     public EnrollmentApiController(EnrollmentService enrollmentService) {
         this.enrollmentService = enrollmentService;
     }
-    @PostMapping()
-    public ResponseEntity<Enrollment> bookTrainingSession(@RequestBody Enrollment enrollment) {
-        Enrollment Enroll = enrollmentService.createEnrollment(enrollment);
-        return ResponseEntity.ok(Enroll);
+
+    @PostMapping
+    public ResponseEntity<Enrollment> createEnrollment(@RequestBody Enrollment enrollment) {
+        Enrollment created = enrollmentService.createEnrollment(enrollment);
+        return ResponseEntity.ok(created);
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Enrollment> getEnrollmentById(@PathVariable long id){
+    public ResponseEntity<Enrollment> getEnrollmentById(@PathVariable long id) {
         Enrollment enrollment = enrollmentService.getByEnrollmentId(id);
-        return ResponseEntity.ok(enrollment);
+        return enrollment != null ? ResponseEntity.ok(enrollment) : ResponseEntity.notFound().build();
     }
+
     @GetMapping("/student/{studentId}")
-    public ResponseEntity<List<Enrollment>> getEnrollmentsByStudent(@PathVariable long id){
-        List<Enrollment> enrollments = enrollmentService.getEnrollmentsByStudentId(id);
+    public ResponseEntity<List<Enrollment>> getEnrollmentsByStudent(@PathVariable long studentId) {
+        List<Enrollment> enrollments = enrollmentService.getEnrollmentsByStudentId(studentId);
         return ResponseEntity.ok(enrollments);
     }
 }

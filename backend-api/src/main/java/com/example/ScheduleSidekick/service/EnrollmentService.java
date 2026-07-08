@@ -2,31 +2,32 @@ package com.example.ScheduleSidekick.service;
 
 import java.util.List;
 
-
-import com.example.ScheduleSidekick.repository.EnrollmentRepository;
-import com.example.ScheduleSidekick.entity.Enrollment;
-
 import org.springframework.stereotype.Service;
+
+import com.example.ScheduleSidekick.entity.Enrollment;
+import com.example.ScheduleSidekick.repository.EnrollmentRepository;
 
 @Service
 public class EnrollmentService {
     private final EnrollmentRepository enrollmentRepository;
-    public EnrollmentService(EnrollmentRepository enrollmentRepository){
+
+    public EnrollmentService(EnrollmentRepository enrollmentRepository) {
         this.enrollmentRepository = enrollmentRepository;
     }
-    //I need to post and enrollement after every sign in
-    public List<Enrollment> getEnrollmentsByStudentId(long id){
+
+    public List<Enrollment> getEnrollmentsByStudentId(long id) {
         return enrollmentRepository.findByStudentId(id);
     }
-    public Enrollment getByEnrollmentId(long Id){
-        return enrollmentRepository.findByEnrollmentId(Id);
-    }
-    //place to find by class ID
-    public Enrollment createEnrollment(Enrollment enrollment){
-        return enrollmentRepository.save(enrollment);
-    }
-    public void deleteEnrollment(long id){
-        enrollmentRepository.deleteById(id);
+
+    public Enrollment getByEnrollmentId(long id) {
+        return enrollmentRepository.findById(id).orElse(null);
     }
 
+    public Enrollment createEnrollment(Enrollment enrollment) {
+        return enrollmentRepository.save(enrollment);
+    }
+
+    public void deleteEnrollment(long id) {
+        enrollmentRepository.deleteById(id);
+    }
 }
