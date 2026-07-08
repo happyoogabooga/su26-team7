@@ -1,0 +1,66 @@
+package com.example.ScheduleSidekick.service;
+
+import org.springframework.stereotype.Service;
+
+import com.example.ScheduleSidekick.entity.Student;
+import com.example.ScheduleSidekick.repository.StudentRepository;
+
+@Service
+public class StudentService {
+    private final StudentRepository studentRepository;
+
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    // FIX: Use findById() instead of the broken custom finder method
+    public Student getStudentById(long id) {
+        return studentRepository.findById(id).orElse(null);
+    }
+
+    public Student createAccount(Student student) {
+        return studentRepository.save(student);
+    }
+
+    public Student updateStudent(long id, Student updatedStudent) {
+        Student currentStudent = studentRepository.findById(id).orElse(null);
+        if (currentStudent != null) {
+            currentStudent.setName(updatedStudent.getName());
+            // FIX: Fixed typo where name was used instead of email
+            currentStudent.setEmail(updatedStudent.getEmail()); 
+            currentStudent.setPassword(updatedStudent.getPassword());
+            currentStudent.setClassYear(updatedStudent.getClassYear());
+            currentStudent.setEnrolledHours(updatedStudent.getEnrolledHours());
+            return studentRepository.save(currentStudent);
+        }
+        return null;
+    }
+
+    public Student updatePassword(long id, String password) {
+        Student currentStudent = studentRepository.findById(id).orElse(null);
+        if (currentStudent != null) {
+            currentStudent.setPassword(password);
+            return studentRepository.save(currentStudent);
+        }
+        return null;
+    }
+
+    public Student updatePersonalInfo(long id, Student student) {
+        Student currentStudent = studentRepository.findById(id).orElse(null);
+        if (currentStudent != null) {
+            currentStudent.setEmail(student.getEmail());
+            currentStudent.setPassword(student.getPassword());
+            currentStudent.setName(student.getName());
+            return studentRepository.save(currentStudent);
+        }
+        return null;
+    }
+
+    public boolean deleteAccount(long id) {
+        if (studentRepository.existsById(id)) {
+            studentRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+}
