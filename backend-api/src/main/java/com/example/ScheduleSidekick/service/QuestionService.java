@@ -19,6 +19,10 @@ public class QuestionService {
         return questionRepository.findById(id).orElse(null);
     }
 
+    public Question createQuestion(Question question) {
+        return questionRepository.save(question);
+    }
+
     public List<Question> searchQuestionsByCourseId(long id) {
         return questionRepository.findByCourseId(id);
     }
