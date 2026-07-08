@@ -9,6 +9,7 @@ import com.example.ScheduleSidekick.entity.Teacher;
 
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {
+
     List<Teacher> findByNameContainingIgnoreCaseOrBioContainingIgnoreCase(String titleKeyword, String contentKeyword);
 
 }
