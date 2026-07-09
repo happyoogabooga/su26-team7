@@ -31,8 +31,8 @@ public class CourseApiController {
         }
         return ResponseEntity.ok(course);
     }
-    @GetMapping("/{category}")
-    public ResponseEntity<List<Course>> getByCategory(@RequestParam String query){
+    @GetMapping("/{code}")
+    public ResponseEntity<List<Course>> getByCode(@RequestParam String query){
         List<Course> course = courseService.getCourseByCode(query);
         if(course.isEmpty()){
             return ResponseEntity.ok(Collections.emptyList());
