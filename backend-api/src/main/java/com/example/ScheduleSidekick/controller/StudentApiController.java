@@ -1,5 +1,8 @@
 package com.example.ScheduleSidekick.controller;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +24,14 @@ public class StudentApiController {
     StudentApiController(StudentService studentService){
         this.studentService = studentService;
     }
-
+    @GetMapping
+    public ResponseEntity<List<Student>> getAllStudents(){
+        List<Student> students = studentService.getAllStudents();
+        if(students.isEmpty()){
+            return ResponseEntity.ok(Collections.emptyList());
+        }
+        return ResponseEntity.ok(students);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<Student> getStudentById(@PathVariable long id) {
         Student student = studentService.getStudentById(id);

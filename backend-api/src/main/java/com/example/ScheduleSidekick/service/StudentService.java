@@ -1,4 +1,5 @@
 package com.example.ScheduleSidekick.service;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,9 @@ public class StudentService {
         return studentRepository.findById(id).orElse(null);
     }
 
+    public List<Student> getAllStudents(){
+        return studentRepository.findAll();
+    }
     public Student createAccount(Student student) {
         return studentRepository.save(student);
     }

@@ -22,7 +22,9 @@ public class EnrollmentService {
     public Enrollment getByEnrollmentId(long id) {
         return enrollmentRepository.findById(id).orElse(null);
     }
-
+    public List<Enrollment> getEnrollmentByCourseId(long id){
+        return enrollmentRepository.findByCourseId(id);
+    }
     public Enrollment createEnrollment(Enrollment enrollment) {
         return enrollmentRepository.save(enrollment);
     }

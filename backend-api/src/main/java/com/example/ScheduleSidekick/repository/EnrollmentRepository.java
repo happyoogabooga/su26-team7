@@ -10,5 +10,6 @@ import com.example.ScheduleSidekick.entity.Enrollment;
 @Repository
 public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
     // Standard query path: travels through Enrollment -> Student -> id
+    List<Enrollment> findByCourseId(long Id);
     List<Enrollment> findByStudentId(long studentId);
 }
