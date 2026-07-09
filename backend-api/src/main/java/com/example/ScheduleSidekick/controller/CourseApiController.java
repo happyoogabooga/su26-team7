@@ -31,7 +31,7 @@ public class CourseApiController {
         }
         return ResponseEntity.ok(course);
     }
-    @GetMapping("/{code}")
+    @GetMapping("/search")
     public ResponseEntity<List<Course>> getByCode(@RequestParam String query){
         List<Course> course = courseService.getCourseByCode(query);
         if(course.isEmpty()){
@@ -40,8 +40,8 @@ public class CourseApiController {
         return ResponseEntity.ok(course);
     }
     @PostMapping
-    public ResponseEntity<Course> createCourse(@RequestBody Course course){
-        Course createdCourse = courseService.createCourse(course);
+    public ResponseEntity<Course> createCourse(@RequestBody Course updatedcourse){
+        Course course = courseService.createCourse(updatedcourse);
         return ResponseEntity.ok(course);
     }
     @PutMapping("/{id}")

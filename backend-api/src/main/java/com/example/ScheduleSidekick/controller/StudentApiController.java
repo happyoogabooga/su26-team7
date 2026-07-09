@@ -21,7 +21,7 @@ import com.example.ScheduleSidekick.service.StudentService;
 public class StudentApiController {
     private final StudentService studentService;
     
-    StudentApiController(StudentService studentService){
+    public StudentApiController(StudentService studentService){
         this.studentService = studentService;
     }
     @GetMapping
