@@ -48,7 +48,7 @@ public class QuestionApiController {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteQuestion(@PathVariable long id) {
         boolean deleted = questionService.deleteQuestion(id);
         if (deleted) {
