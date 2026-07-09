@@ -1,14 +1,18 @@
 package com.example.ScheduleSidekick.entity;
+
 import java.time.LocalTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -30,13 +34,13 @@ public class Course {
     private String name;
 
     @Column(nullable = false)
-    private String code;            //Example: csc340
+    private String code; // Example: csc340
 
     @Column(nullable = false)
     private String section;
 
     @Column(nullable = false)
-    private String days;                 //days this class will occur on
+    private String days; // days this class will occur on
 
     @Column(name = "starttime")
     private LocalTime startTime;
@@ -59,7 +63,8 @@ public class Course {
     @Column(name = "currentenrollment")
     private int currentEnrollment;
 
-    public Course(String name, String code, String section,String days, String term, LocalTime startTime, LocalTime endTime, String location, String description, int maxEnrollment, int currentEnrollment){
+    public Course(String name, String code, String section, String days, String term, LocalTime startTime,
+            LocalTime endTime, String location, String description, int maxEnrollment, int currentEnrollment) {
         this.name = name;
         this.code = code;
         this.section = section;
@@ -72,7 +77,18 @@ public class Course {
         this.maxEnrollment = maxEnrollment;
         this.currentEnrollment = currentEnrollment;
     }
+
     @OneToMany(mappedBy = "course")
     @JsonIgnore
     List<Enrollment> enrollments;
+
+    @OneToMany(mappedBy = "course")
+    @JsonIgnore
+    List<Question> questions;
+
+    @ManyToOne
+    @JsonIgnoreProperties({ "courses" })
+    @JoinColumn(nullable = false) // Maps directly to teacher id column in the teachers table
+    private Teacher teacher;
+
 }

@@ -1,10 +1,14 @@
 package com.example.ScheduleSidekick.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,11 +31,14 @@ public class Question {
     @Column(columnDefinition = "TEXT")
     private String answer;
 
-    @Column(name = "course_id")
-    private long courseId;
-
-    public Question(String text, long courseId) {
+    public Question(String text, Course course) {
         this.text = text;
-        this.courseId = courseId;
+        this.course = course;
     }
+
+    @ManyToOne
+    @JsonIgnoreProperties({ "question" })
+    @JoinColumn(nullable = false)
+    private Course course;
+
 }
