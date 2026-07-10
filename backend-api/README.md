@@ -28,7 +28,7 @@ The ScheduleSidekick backend exposes a RESTful API for the Class Scheduling plat
 
 ## 2. UML Class Diagram
 
-![UML Class Diagram](../docs/image.png)
+![UML Class Diagram](../docs/ScheduleSidekickUML.png)
 
 ---
 
