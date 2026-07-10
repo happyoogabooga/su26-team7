@@ -29,7 +29,11 @@ public class EnrollmentService {
         return enrollmentRepository.save(enrollment);
     }
 
-    public void deleteEnrollment(long id) {
-        enrollmentRepository.deleteById(id);
+    public boolean deleteEnrollment(long id) {
+        if(enrollmentRepository.existsById(id)){
+            enrollmentRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
