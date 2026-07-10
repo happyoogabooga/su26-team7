@@ -1,4 +1,5 @@
 package com.example.ScheduleSidekick.controller;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -20,47 +21,51 @@ import com.example.ScheduleSidekick.service.CourseService;
 @RequestMapping("/api/course")
 public class CourseApiController {
     private final CourseService courseService;
-    public CourseApiController(CourseService courseService){
+
+    public CourseApiController(CourseService courseService) {
         this.courseService = courseService;
     }
+
     @GetMapping
-    public ResponseEntity<List<Course>> getCourses(){
+    public ResponseEntity<List<Course>> getCourses() {
         List<Course> course = courseService.getAllCourses();
-        if(course.isEmpty()){
+        if (course.isEmpty()) {
             return ResponseEntity.ok(Collections.emptyList());
         }
         return ResponseEntity.ok(course);
     }
+
     @GetMapping("/{category}")
-    public ResponseEntity<List<Course>> getByCategory(@RequestParam String query){
+    public ResponseEntity<List<Course>> getByCategory(@RequestParam String query) {
         List<Course> course = courseService.getCourseByCode(query);
-        if(course.isEmpty()){
+        if (course.isEmpty()) {
             return ResponseEntity.ok(Collections.emptyList());
         }
         return ResponseEntity.ok(course);
     }
+
     @PostMapping
-    public ResponseEntity<Course> createCourse(@RequestBody Course course){
+    public ResponseEntity<Course> createCourse(@RequestBody Course course) {
         Course createdCourse = courseService.createCourse(course);
-        return ResponseEntity.ok(course);
+        return ResponseEntity.ok(createdCourse);
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Course> updateCourse(@PathVariable long id, @RequestBody Course updatedCourse){
+    public ResponseEntity<Course> updateCourse(@PathVariable long id, @RequestBody Course updatedCourse) {
         Course course = courseService.updateCourse(id, updatedCourse);
-        if(course != null){
+        if (course != null) {
             return ResponseEntity.ok(course);
-        }
-        else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCourse(long id){
+    public ResponseEntity<Void> deleteCourse(long id) {
         boolean deleted = courseService.DeleteCourse(id);
-        if(deleted){
+        if (deleted) {
             return ResponseEntity.noContent().build();
-        }
-        else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
