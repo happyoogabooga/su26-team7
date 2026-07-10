@@ -1,6 +1,7 @@
 package com.example.ScheduleSidekick.controller;
 
 import java.util.List;
+import java.util.Collections;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +28,14 @@ public class EnrollmentApiController {
         Enrollment created = enrollmentService.createEnrollment(enrollment);
         return ResponseEntity.ok(created);
     }
-
+    @GetMapping("/roster/{id}")
+    public ResponseEntity<List<Enrollment>> getEnrollmentByCourseId(@PathVariable long id){
+        List<Enrollment> enrollment = enrollmentService.getEnrollmentByCourseId(id);
+        if(enrollment.isEmpty()){
+            return ResponseEntity.ok(Collections.emptyList());
+        }
+        return ResponseEntity.ok(enrollment);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<Enrollment> getEnrollmentById(@PathVariable long id) {
         Enrollment enrollment = enrollmentService.getByEnrollmentId(id);
@@ -37,6 +45,9 @@ public class EnrollmentApiController {
     @GetMapping("/student/{studentId}")
     public ResponseEntity<List<Enrollment>> getEnrollmentsByStudent(@PathVariable long studentId) {
         List<Enrollment> enrollments = enrollmentService.getEnrollmentsByStudentId(studentId);
+        if(enrollments.isEmpty()){
+            return ResponseEntity.ok(Collections.emptyList());
+        }
         return ResponseEntity.ok(enrollments);
     }
 }

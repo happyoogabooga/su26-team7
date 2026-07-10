@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -43,9 +44,11 @@ public class Course {
     private String days; // days this class will occur on
 
     @Column(name = "starttime")
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime startTime;
 
     @Column(name = "endtime")
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime endTime;
 
     @Column(nullable = false)
