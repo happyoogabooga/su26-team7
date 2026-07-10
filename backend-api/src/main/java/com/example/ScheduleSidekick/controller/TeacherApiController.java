@@ -39,7 +39,7 @@ public class TeacherApiController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Teacher> updateTeacehr(@PathVariable long id, @RequestBody Teacher updatedTeacher) {
+    public ResponseEntity<Teacher> updateTeacher(@PathVariable long id, @RequestBody Teacher updatedTeacher) {
         Teacher teacher = teacherService.updateTeacher(id, updatedTeacher);
         if (teacher != null) {
             return ResponseEntity.ok(teacher);
