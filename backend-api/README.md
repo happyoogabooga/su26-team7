@@ -5,7 +5,7 @@
 **Base URL:**
 
 - local: http://localhost:8080
-- production: tbd
+- production: https://su26-team7.onrender.com
 
 ## Table Contents
 
