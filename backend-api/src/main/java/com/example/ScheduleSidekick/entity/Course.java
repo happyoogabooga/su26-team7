@@ -1,5 +1,5 @@
 package com.example.ScheduleSidekick.entity;
-
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -94,4 +94,23 @@ public class Course {
     @JoinColumn(nullable = false) // Maps directly to teacher id column in the teachers table
     private Teacher teacher;
 
+    public int getStartGridRow() {
+        if (this.startTime == null) return 1;
+    
+
+        LocalTime baseTime = LocalTime.of(8, 0);
+        long minutesBetween = Duration.between(baseTime, this.startTime).toMinutes();
+    
+
+        return (int) (minutesBetween / 15) + 1;
+    }
+
+    public int getEndGridRow() {
+        if (this.endTime == null) return 2;
+        
+        LocalTime baseTime = LocalTime.of(8, 0);
+        long minutesBetween = Duration.between(baseTime, this.endTime).toMinutes();
+        
+        return (int) (minutesBetween / 15) + 1;
+    }
 }

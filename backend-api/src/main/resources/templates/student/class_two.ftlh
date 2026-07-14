@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "StyleSheet" href = "/student/Styles.css"> 
+    </head>
+    <body>
+        <nav>
+            <div class = "navbar">
+                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
+                <ul class = "navlinks">
+                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
+                    <li> <a href = "/course_catalog" style = "color:white">Course catalog</a>
+                    <li> <a href = "Current_courses.html" style = "color:white">Current Courses</a></li>
+                    <li> <a href = "profile.html" style = "color:white">Profile</a>
+                    <li> <a href = "login.html" style = "color:white">LogOut</a>
+                </ul>
+            </div>
+        </nav>
+        <header>
+            <h1>About Course</h1>
+            <p style = "color:black">View information about this course</p>
+        </header>
+        <div class = "container">
+            <div class = "card">
+                <div class = "card_head">
+                    <h1>About this class</h1>
+                </div>
+                <div class = "card_body">
+                    <!--course location-->
+                    <div>
+                        <p style = "margin-top:0">Name: Software Engineering</p>
+                    </div>
+                    <div>
+                        <p>Location: Petty 007</p>
+                    </div>
+                    <div>
+                        <p>Time: 10:10 - 12:00</p>
+                    </div>
+                    <div>
+                        <p>Professor: Sunny Ntini</p>
+                    </div>
+                        <div>
+                            <p>
+                                Course Description: In this class you learn the principals of software engineering from planning to production. This involves concepts like SDLC, Front end web development, back end development, and an introduction to databases.
+                            </p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

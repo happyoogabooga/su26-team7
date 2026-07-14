@@ -7,6 +7,7 @@ import com.example.ScheduleSidekick.entity.Student;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
+    Student findByEmailAndPassword(String email, String password);
     Student findByname(String name); // Note: Should ideally be findByName to follow camelCase conventions
     Student findByEmail(String email);
 }

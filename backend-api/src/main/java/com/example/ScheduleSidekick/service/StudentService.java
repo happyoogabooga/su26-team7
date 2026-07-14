@@ -14,7 +14,10 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    // FIX: Use findById() instead of the broken custom finder method
+    public Student getStudentByEmailandPassword(String email, String password){
+        return studentRepository.findByEmailAndPassword(email, password);
+    }
+
     public Student getStudentById(long id) {
         return studentRepository.findById(id).orElse(null);
     }
@@ -49,12 +52,12 @@ public class StudentService {
         return null;
     }
 
-    public Student updatePersonalInfo(long id, Student student) {
+    public Student updatePersonalInfo(long id, String Email, String Password, String Name) {
         Student currentStudent = studentRepository.findById(id).orElse(null);
         if (currentStudent != null) {
-            currentStudent.setEmail(student.getEmail());
-            currentStudent.setPassword(student.getPassword());
-            currentStudent.setName(student.getName());
+            currentStudent.setEmail(Email);
+            currentStudent.setPassword(Password);
+            currentStudent.setName(Name);
             return studentRepository.save(currentStudent);
         }
         return null;
