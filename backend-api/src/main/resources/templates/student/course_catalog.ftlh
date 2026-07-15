@@ -6,13 +6,13 @@
     <body>
         <nav>
             <div class = "navbar">
-                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
+                <a href = "/schedule/${student.id}" class = "logo">Schedule Sidekick</a>
                 <ul class = "navlinks">
-                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
-                    <li> <a href = "/course_catalog" style = "color:white">Course catalog</a>
-                        <li> <a href = "Current_courses.html" style = "color:white">Current Courses</a></li>
-                    <li> <a href = "profile.html" style = "color:white">Profile</a>
-                    <li> <a href = "login.html" style = "color:white">LogOut</a>
+                    <li> <a href = "/schedule/${student.id}" style = "color:white">Schedule</a>
+                    <li> <a href = "/course_catalog/${student.id}" style = "color:white">Course catalog</a>
+                    <li> <a href = "Current_courses.html" style = "color:white">Current Courses</a></li>
+                    <li> <a href = "/profile/${student.id}" style = "color:white">Profile</a>
+                    <li> <a href = "/login" style = "color:white">LogOut</a>
                 </ul>
             </div>
         </nav>
@@ -46,7 +46,7 @@
                                 </div>
                             <#else>
                                 <#list courseList as course>
-                                <a href = "/class_details/${student.id}/${course.id}">
+                                <a href = "/student/class_details/${student.id}/${course.id}">
                                     <div class = "course_option_row" style = "text-align:left; width:100%">
                                         <div class = "course_option_title">${course.name}</div>
                                         <div class = "course_option_detail">Professor: ${course.teacher.name}</div>

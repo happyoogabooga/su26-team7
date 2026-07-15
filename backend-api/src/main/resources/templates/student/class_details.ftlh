@@ -6,13 +6,13 @@
     <body>
         <nav>
             <div class = "navbar">
-                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
+                <a href = "/student/schedule/${student.id}" class = "logo">Schedule Sidekick</a>
                 <ul class = "navlinks">
-                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
-                    <li> <a href = "/course_catalog" style = "color:white">Course catalog</a>
-                    <li> <a href = "current_courses.html" style = "color:white">Current Courses</a></li>
-                    <li> <a href = "profile.html" style = "color:white">Profile</a>
-                    <li> <a href = "login.html" style = "color:white">LogOut</a>
+                    <li> <a href = "/student/schedule/${student.id}" style = "color:white">Schedule</a>
+                    <li> <a href = "/student/course_catalog/${student.id}" style = "color:white">Course catalog</a>
+                    <li> <a href = "/studentCurrent_courses.html" style = "color:white">Current Courses</a></li>
+                    <li> <a href = "/student/profile/${student.id}" style = "color:white">Profile</a>
+                    <li> <a href = "/student/login" style = "color:white">LogOut</a>
                 </ul>
             </div>
         </nav>
@@ -42,9 +42,32 @@
                     <div>
                         <p>Course Description: ${course.description}</p>
                     </div>
+                    <div\>
+                        <p>Days Availiable</p>
+                    
+                        <#if course.days?contains("M")>
+                            Monday
+                        </#if>
+
+                        <#if course.days?contains("T")>
+                            Tuesday
+                        </#if>
+
+                        <#if course.days?contains("W")>
+                            Wednesday
+                        </#if>
+
+                        <#if course.days?contains("R")>
+                            Thursday
+                        </#if> 
+
+                        <#if course.days?contains("F")>
+                            friday
+                        </#if>
+                    </div>
                     <div>
                         <!--on click, send a post request for an enrollment to the back end-->
-                        <form action = "/enrollment/add/${student.id}/${course.id}" method = "POST">
+                        <form action = "/student/enrollment/add/${student.id}/${course.id}" method = "POST">
                             <button class = "btn_outline" style = "width:10%; color:red" type = "submit">
                                 Add Course
                             </button>

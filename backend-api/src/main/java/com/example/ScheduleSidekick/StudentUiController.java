@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.ScheduleSidekick.entity.Course;
 import com.example.ScheduleSidekick.entity.Student;
@@ -19,6 +20,7 @@ import com.example.ScheduleSidekick.service.StudentService;
 import com.example.ScheduleSidekick.service.EnrollmentService;
 
 @Controller
+@RequestMapping("/student")
 public class StudentUiController {
     final private StudentService studentService;
     final private CourseService courseService;
@@ -69,10 +71,10 @@ public class StudentUiController {
         return "student/edit_personal_information";
     }
 
-    @GetMapping("/Student_login")
-    public String Student_login(Model model){
+    @GetMapping("/signup")
+    public String signup(Model model){
         model.addAttribute("Student", new Student());
-        return "student/Student_login";
+        return "student/signup";
     }
 
     @GetMapping("/profile/{id}")
@@ -90,18 +92,24 @@ public class StudentUiController {
         model.addAttribute("student", student);
         return "student/class_details";
     }
+    
+    @GetMapping("/deleteEnrollment/{studentid}/{enrollmentid}")
+    public String deleteEnrollment(@PathVariable long studentid, @PathVariable long enrollmentid){
+        boolean isdeleted = enrollmentService.deleteEnrollment(enrollmentid);
+        return "redirect:/student/schedule/" + studentid;
+    }
 
     @PostMapping("/save")
     public String createStudent(Student student){
         Student createdStudent = studentService.createAccount(student);
-        return "student/schedule/" + createdStudent.getId();
+        return "redirect:/student/schedule/" + createdStudent.getId();
     }
 
     @PostMapping("/loginAccount")
-    public String loginStudent(String email, String password){
+    public String loginStudent(@RequestParam("email") String email, @RequestParam("password") String password){
         Student createdStudent = studentService.getStudentByEmailandPassword(email, password);
         if(createdStudent != null){
-            return "/student/schedule/" + createdStudent.getId();
+            return "redirect:/student/schedule/" + createdStudent.getId();
         }
         return "student/login";
     }
@@ -109,12 +117,12 @@ public class StudentUiController {
     @PostMapping("/editInformation/{id}")
     public String editInformation(@PathVariable long id,@RequestParam("email") String email,@RequestParam("password") String password ,@RequestParam("name") String name){
         Student student = studentService.updatePersonalInfo(id, email, password, name);
-        return "redirect:/profile/" + id;
+        return "redirect:/student/profile/" + id;
     }
 
     @PostMapping("/enrollment/add/{studentid}/{courseid}")
     public String addEnrollment(@PathVariable long studentid, @PathVariable long courseid){
         Enrollment enrollment = enrollmentService.createEnrollmentByIds(studentid, courseid);
-        return "redirect:/schedule/" + studentid;
+        return "redirect:/student/schedule/" + studentid;
     }
 }

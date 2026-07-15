@@ -6,13 +6,13 @@
     <body>
         <nav>
             <div class = "navbar">
-                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
+                <a href = "/student/schedule/${student.id}" class = "logo">Schedule Sidekick</a>
                 <ul class = "navlinks">
-                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
-                    <li> <a href = "/course_catalog" style = "color:white">Course catalog</a>
-                    <li> <a href = "Current_courses.html" style = "color:white">Current Courses</a></li>
-                    <li> <a href = "profile.html" style = "color:white">Profile</a>
-                    <li> <a href = "login.html" style = "color:white">LogOut</a>
+                    <li> <a href = "/student/schedule/${student.id}" style = "color:white">Schedule</a>
+                    <li> <a href = "/student/course_catalog/${student.id}" style = "color:white">Course catalog</a>
+                    <li> <a href = "/studentCurrent_courses.html" style = "color:white">Current Courses</a></li>
+                    <li> <a href = "/student/profile/${student.id}" style = "color:white">Profile</a>
+                    <li> <a href = "/student/login" style = "color:white">LogOut</a>
                 </ul>
             </div>
         </nav>
@@ -33,9 +33,6 @@
                             <div>Courses taken: ${student.enrolledHours}</div>
                             <div>Class Year: ${student.classYear}</div>
                         </div>
-                        <a class="btn_outline" href="edit_personal_information.html">
-                            Edit personal info
-                        </a>
                     </div>
                 </div>
                 <!--the below section is reserved for, exit, update etc-->
@@ -44,11 +41,11 @@
                         <h2>Account Information</h2>
                     </div>
                     <div class = "card_body">
+                        <a class="btn_outline" href="/student/editInformation/${student.id}">
+                            Edit personal information
+                        </a>
                         <div>
-                            <a class = "btn_outline" href = "change_password.html">Change Password</a>
-                        </div>
-                        <div>
-                            <a class = "btn_outline" style="color:red">Sign out</a>
+                            <a class = "btn_outline" style="color:red" href = "/student/login">Sign out</a>
                         </div>
                     </div>
                 </div>

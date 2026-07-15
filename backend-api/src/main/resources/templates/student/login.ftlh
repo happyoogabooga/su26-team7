@@ -6,7 +6,7 @@
     <body>
         <nav>
             <div class = "navbar">
-                <a href = "../index.html" class = "logo">Schedule Sidekick</a>
+                <a href = "/home" class = "logo">Schedule Sidekick</a>
             </div>
         </nav>
         <div class = "container">
@@ -15,7 +15,7 @@
                     <h1>Student Login</h1>
                 </div>
                 <div class = "card_body">
-                    <form id = "studentLogin" action="/loginAccount" method="POST">
+                    <form id = "studentLogin" action="/student/loginAccount" method="POST">
                         <div class = "formstyle">
                             <label for = "email" class = "formLabel">Email*</label>
                             <input type = "text" id = "studentEmail" required class = "formcontrol" placeholder = "e.g., jerry.moyer@gmail.com" name = "email">
@@ -30,7 +30,7 @@
                         </div>
                     </form>
                     <hr>
-                    <small>Wrong page? got to <a href = "Student_login.html">Sign up</a></small>
+                    <small>Wrong page? got to <a href = "/student/signup">Sign up</a></small>
                 </div>
             </div>
         </div>

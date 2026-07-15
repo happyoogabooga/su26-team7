@@ -6,13 +6,13 @@
     <body>
         <nav>
             <div class = "navbar">
-                <a href = "schedule.html" class = "logo">Schedule Sidekick</a>
+                <a href = "/student/schedule/${student.id}" class = "logo">Schedule Sidekick</a>
                 <ul class = "navlinks">
-                    <li> <a href = "schedule.html" style = "color:white">Schedule</a>
-                    <li> <a href = "/course_catalog" style = "color:white">Course catalog</a>
-                        <li> <a href = "Current_courses.html" style = "color:white">Current Courses</a></li>
-                    <li> <a href = "profile.html" style = "color:white">Profile</a>
-                    <li> <a href = "login.html" style = "color:white">LogOut</a>
+                    <li> <a href = "/student/schedule/${student.id}" style = "color:white">Schedule</a>
+                    <li> <a href = "/student/course_catalog/${student.id}" style = "color:white">Course catalog</a>
+                    <li> <a href = "/studentCurrent_courses.html" style = "color:white">Current Courses</a></li>
+                    <li> <a href = "/student/profile/${student.id}" style = "color:white">Profile</a>
+                    <li> <a href = "/student/login" style = "color:white">LogOut</a>
                 </ul>
             </div>
         </nav>
@@ -26,7 +26,7 @@
                         <h2>Edit your Personal Information</h2>
                     </div>
                     <div class = "card_body">
-                        <form id = "editPersonalInformation" action = "/editInformation/${student.id}" method = "POST">
+                        <form id = "editPersonalInformation" action = "/student/editInformation/${student.id}" method = "POST">
                             <div class = "formstyle">
                                 <label for = "first_name" class = "formLabel">Name:</label>
                                 <input type = "text" id = "Name" placeholder = "Jerry moyer" required class = "formcontrol" name = "name" value = "${student.name}">

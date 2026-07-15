@@ -14,7 +14,7 @@
                 <h1>Student Sign up</h1>
             </div>
             <div class = "card_body">
-                <form id = "studentSignin" method = "POST" action = "/save">
+                <form id = "studentSignin" method = "POST" action = "/student/save">
                     <div class = "formstyle">
                         <label for = "firstName" class = "formLabel">Name*</label>
                         <input type = "text" id = "studentFirstName" required class = "formcontrol" placeholder = "e.g., Jerry" name = "name">
@@ -22,13 +22,13 @@
                     </div>
                     <div class = "formstyle">
                         <strong>Your Class Year</strong>
-                        <input type = "radio" value = 1 name = "class_year" id = "year_one">
+                        <input type = "radio" value = 1 name = "classYear" id = "year_one">
                         <label for = "year_one">1</label>
-                        <input type = "radio" value = 2 name = "class_year" id = "year_two">
+                        <input type = "radio" value = 2 name = "classYear" id = "year_two">
                         <label for = "year_two">2</label>
-                        <input type = "radio" value = 3 name = "class_year" id = "year_three">
+                        <input type = "radio" value = 3 name = "classYear" id = "year_three">
                         <label for = "year_three">3</label>
-                        <input type = "radio" value = 4 name = "class_year" id = "year_four">
+                        <input type = "radio" value = 4 name = "classYear" id = "year_four">
                         <label for = "year_four">4</label>
                     </div>
                     <div class = "formstyle">

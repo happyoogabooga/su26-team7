@@ -6,14 +6,13 @@
     <body>
         <nav>
             <div class = "navbar">
-                <!-- Swapped static .html links out for your real dynamic endpoints -->
-                <a href = "/schedule/${student.id}" class = "logo">Schedule Sidekick</a>
+                <a href = "/student/schedule/${student.id}" class = "logo">Schedule Sidekick</a>
                 <ul class = "navlinks">
-                    <li> <a href = "/schedule/${student.id}" style = "color:white">Schedule</a></li>
-                    <li> <a href = "/course_catalog/${student.id}" style = "color:white">Course catalog</a></li>
-                    <li> <a href = "/Current_courses" style = "color:white">Current Courses</a></li>
-                    <li> <a href = "/profile/${student.id}" style = "color:white">Profile</a></li>
-                    <li> <a href = "/login" style = "color:white">LogOut</a></li>
+                    <li> <a href = "/student/schedule/${student.id}" style = "color:white">Schedule</a>
+                    <li> <a href = "/student/course_catalog/${student.id}" style = "color:white">Course catalog</a>
+                    <li> <a href = "/studentCurrent_courses.html" style = "color:white">Current Courses</a></li>
+                    <li> <a href = "/student/profile/${student.id}" style = "color:white">Profile</a>
+                    <li> <a href = "/student/login" style = "color:white">LogOut</a>
                 </ul>
             </div>
         </nav>
@@ -39,7 +38,7 @@
                 </div>
                 <div>
                     <!-- Dynamically links to the course catalog for this specific student -->
-                    <a href = "/course_catalog/${student.id}" class = "btn_outline" style = "text-align:center; width:15%;">Add classes</a>
+                    <a href = "/student/course_catalog/${student.id}" class = "btn_outline" style = "text-align:center; width:15%;">Add classes</a>
                 </div>
             </div>
             <div>
@@ -127,7 +126,7 @@
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
                                     <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
-                                    <div class="schedule_drop_course">Drop class</div>
+                                    <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
                         </#if>
@@ -149,7 +148,7 @@
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
                                     <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
-                                    <div class="schedule_drop_course">Drop class</div>
+                                    <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
                         </#if>
@@ -171,7 +170,7 @@
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
                                     <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
-                                    <div class="schedule_drop_course">Drop class</div>
+                                    <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
                         </#if>
@@ -193,7 +192,7 @@
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
                                     <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
-                                    <div class="schedule_drop_course">Drop class</div>
+                                    <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
                         </#if>
@@ -215,7 +214,7 @@
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
                                     <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
-                                    <div class="schedule_drop_course">Drop class</div>
+                                    <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
                         </#if>
