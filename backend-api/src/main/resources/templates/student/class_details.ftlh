@@ -28,19 +28,27 @@
                 <div class = "card_body">
                     <!--course location-->
                     <div>
-                        <p style = "margin-top:0">Name: Linear Algebra</p>
+                        <p style = "margin-top:0">Name: ${course.name}</p>
                     </div>
                     <div>
-                        <p>Location: Petty 007</p>
+                        <p>Location: ${course.location}</p>
                     </div>
                     <div>
-                        <p>Time: 8:30 - 9:15</p>
+                        <p>Time: ${course.startTime} - ${course.endTime}</p>
                     </div>
                     <div>
-                        <p>Professor: Thomas Weighill</p>
+                        <p>Professor: ${course.teacher.name}</p>
                     </div>
                     <div>
-                        <p>Course Description: This is a high level math course that teaches you about vectors. Some topics involve, vector transformations, vector spaces, and RREF</p>
+                        <p>Course Description: ${course.description}</p>
+                    </div>
+                    <div>
+                        <!--on click, send a post request for an enrollment to the back end-->
+                        <form action = "/enrollment/add/${student.id}/${course.id}" method = "POST">
+                            <button class = "btn_outline" style = "width:10%; color:red" type = "submit">
+                                Add Course
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

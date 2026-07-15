@@ -46,11 +46,13 @@
                                 </div>
                             <#else>
                                 <#list courseList as course>
-                                <button class = "course_option_row" onclick = "schedule/5" style = "text-align:left">
-                                    <div class = "course_option_title">${course.name}</div>
-                                    <div class = "course_option_detail">Professor: ${course.teacher.name}</div>
-                                    <div class = "course_option_detail">Seats Open: ${course.maxEnrollment - course.currentEnrollment}</div>
-                                </button>
+                                <a href = "/class_details/${student.id}/${course.id}">
+                                    <div class = "course_option_row" style = "text-align:left; width:100%">
+                                        <div class = "course_option_title">${course.name}</div>
+                                        <div class = "course_option_detail">Professor: ${course.teacher.name}</div>
+                                        <div class = "course_option_detail">Seats Open: ${course.maxEnrollment - course.currentEnrollment}</div>
+                                    </div>
+                                </a>
                                 </#list>
                             </#if>
                         </div>

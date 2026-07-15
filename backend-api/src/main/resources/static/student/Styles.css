@@ -150,12 +150,12 @@ a, a:visited, a:hover, a:active {
 }
 .schedule_grid{
     display:grid;
-    grid-template-columns: 90px repeat(5, 1fr);
+    grid-template-columns: 70px repeat(5, 1fr);
 }
 .time_column,
 .day_column{
     display:grid;
-    grid-template-rows: repeat(50, 36px);
+    grid-template-rows: repeat(49, 30px);
 }
 .time_column{
     border-right:1px solid #ddd;
@@ -163,8 +163,6 @@ a, a:visited, a:hover, a:active {
 }
 .day_column{
     border-right:1px solid #eee;
-    display:grid;
-    grid-template-rows: repeat(50, 36px);
     position:relative;
 }
 .day_column:last-child{
@@ -179,28 +177,31 @@ a, a:visited, a:hover, a:active {
     font-size:0.75rem;
     color:darkgray;
 }
-.day_cell{
-    border-bottom:1px solid #eee;
-    box-sizing:border-box;
+.day_cell {
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    grid-column: 1; /* Forces cells to stay in the same column track */
+    pointer-events: none; /* Prevents background cells from blocking event clicks */
 }
 .day_cell:nth-child(odd){
     background:#fafafa;
 }
-.schedule_event{
-    display:flex;
-    flex-direction:column;
-    grid-column:1;
-    margin:2px;
-    padding:6px;
-    border-radius:6px;
-    background:#dbeafe;
-    border-left:4px solid darkblue;
-    font-size:0.75rem;
-    color:darkblue;
-    font-weight:600;
-    box-sizing:border-box;
-    overflow:visible;
-    gap:3px;
+.schedule_event {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1; /* Aligns events in the same track as your cells */
+    z-index: 2; /* Sits elements clean and crisp on top of the grid background */
+    margin: 2px;
+    padding: 6px;
+    border-radius: 6px;
+    background: #dbeafe;
+    border-left: 4px solid darkblue;
+    font-size: 0.75rem;
+    color: darkblue;
+    font-weight: 600;
+    box-sizing: border-box;
+    overflow: visible;
+    gap: 3px;
 }
 
 .schedule-course-middle{
@@ -226,27 +227,6 @@ a, a:visited, a:hover, a:active {
     flex-wrap:wrap;
     font-size:0.7rem;
 }
-
-/*When the server and everything is connected, the row and span will be done through the server, these are placeholders*/
-.schedule_event.event-1h{
-    grid-row:9 / span 9;
-}
-.schedule_event.event-2h{
-    grid-row:17 / span 4;
-}
-.schedule_event.event-3h{
-    grid-row:1 / span 12;
-}
-.schedule_event.math{
-    background:green;
-    border-left-color:darkgreen;
-    color:red;
-}
-.schedule_event.lab{
-    background:lightgray;
-    border-left-color:gray;
-    color:#065f46;
-}
 .schedule_drop_course{
     margin-left:auto;
     color:red;
@@ -258,6 +238,7 @@ a, a:visited, a:hover, a:active {
 }
 .schedule_drop_course:hover{
     background-color:white;
+    cursor: pointer;
 }
 .course_options_list{
     display:flex;
@@ -290,9 +271,6 @@ a, a:visited, a:hover, a:active {
 .course_option_detail{
     font-size:0.95rem;
     color:#334155;
-}
-
-.dropdown_options{
 }
 .dropdown_options:hover{
     cursor:pointer;

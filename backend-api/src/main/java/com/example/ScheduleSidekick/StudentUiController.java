@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.ScheduleSidekick.entity.Course;
 import com.example.ScheduleSidekick.entity.Student;
+import com.example.ScheduleSidekick.entity.Enrollment;
+
 import com.example.ScheduleSidekick.service.CourseService;
 import com.example.ScheduleSidekick.service.StudentService;
 import com.example.ScheduleSidekick.service.EnrollmentService;
@@ -20,24 +22,29 @@ import com.example.ScheduleSidekick.service.EnrollmentService;
 public class StudentUiController {
     final private StudentService studentService;
     final private CourseService courseService;
-    StudentUiController(StudentService studentService, CourseService courseService){
+    final private EnrollmentService enrollmentService;
+    StudentUiController(StudentService studentService, CourseService courseService, EnrollmentService enrollmentService){
         this.studentService = studentService;
         this.courseService = courseService;
+        this.enrollmentService = enrollmentService;
     }
 
     @GetMapping("/schedule/{id}")
     public String schedule(@PathVariable long id, Model model){
         Student student = studentService.getStudentById(id);
+        List<Enrollment> enrollments = enrollmentService.getEnrollmentsByStudentId(id);
+
+        model.addAttribute("enrollments", enrollments);
         model.addAttribute("student", student);
         return "student/schedule";
     }
 
-    @GetMapping("/course_catalog")
+    @GetMapping("/course_catalog/{id}")
     public String course_catalog(@RequestParam(name = "subject", required = false, defaultValue = "None") String subject, 
-            Model model) {
-        
+            @PathVariable long id, Model model) {
+        Student student = studentService.getStudentById(id);
         List<Course> courses = Collections.emptyList();
-        
+    
         // Only show courses when a specific subject is selected
         if (subject != null && !subject.equals("None") && !subject.isEmpty()) {
             courses = courseService.getCourseByCode(subject);
@@ -45,7 +52,7 @@ public class StudentUiController {
         
         model.addAttribute("courseList", courses); // Passes courses to the template
         model.addAttribute("selectedSubject", subject); // Keeps track of what was selected
-        
+        model.addAttribute("student", student);
         return "student/course_catalog";
     }
 
@@ -75,6 +82,15 @@ public class StudentUiController {
         return "student/profile";
     }
 
+    @GetMapping("/class_details/{studentid}/{courseid}")
+    public String classDetails(@PathVariable long studentid, @PathVariable long courseid,Model model) {
+        Student student = studentService.getStudentById(studentid);
+        Course course = courseService.getCourseByid(courseid);
+        model.addAttribute("course", course);
+        model.addAttribute("student", student);
+        return "student/class_details";
+    }
+
     @PostMapping("/save")
     public String createStudent(Student student){
         Student createdStudent = studentService.createAccount(student);
@@ -94,5 +110,11 @@ public class StudentUiController {
     public String editInformation(@PathVariable long id,@RequestParam("email") String email,@RequestParam("password") String password ,@RequestParam("name") String name){
         Student student = studentService.updatePersonalInfo(id, email, password, name);
         return "redirect:/profile/" + id;
+    }
+
+    @PostMapping("/enrollment/add/{studentid}/{courseid}")
+    public String addEnrollment(@PathVariable long studentid, @PathVariable long courseid){
+        Enrollment enrollment = enrollmentService.createEnrollmentByIds(studentid, courseid);
+        return "redirect:/schedule/" + studentid;
     }
 }
