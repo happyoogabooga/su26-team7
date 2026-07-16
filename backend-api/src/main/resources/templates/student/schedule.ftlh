@@ -117,10 +117,9 @@
                     <#list enrollments as enrollment>
                         <#if enrollment.course.days?contains("M")>
                             <div class="schedule_event" style="grid-row: ${enrollment.course.startGridRow} / ${enrollment.course.endGridRow};">
-                                <div>${enrollment.course.code?upper_case}</div>
+                                <div>${enrollment.course.code}</div>
                                 <div class="schedule-course-middle">
                                     <div><p>Location: ${enrollment.course.location}</p></div>
-                                    <div><p>Time: ${enrollment.course.startTime} - ${enrollment.course.endTime}</p></div>
                                     <div><p>Professor: ${enrollment.course.teacher.name}</p></div>
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
@@ -139,10 +138,9 @@
                     <#list enrollments as enrollment>
                         <#if enrollment.course.days?contains("T")>
                             <div class="schedule_event" style="grid-row: ${enrollment.course.startGridRow} / ${enrollment.course.endGridRow};">
-                                <div>${enrollment.course.code?upper_case}</div>
+                                <div>${enrollment.course.code}</div>
                                 <div class="schedule-course-middle">
                                     <div><p>Location: ${enrollment.course.location}</p></div>
-                                    <div><p>Time: ${enrollment.course.startTime} - ${enrollment.course.endTime}</p></div>
                                     <div><p>Professor: ${enrollment.course.teacher.name}</p></div>
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
@@ -161,10 +159,9 @@
                     <#list enrollments as enrollment>
                         <#if enrollment.course.days?contains("W")>
                             <div class="schedule_event" style="grid-row: ${enrollment.course.startGridRow} / ${enrollment.course.endGridRow};">
-                                <div>${enrollment.course.code?upper_case}</div>
+                                <div>${enrollment.course.code}</div>
                                 <div class="schedule-course-middle">
                                     <div><p>Location: ${enrollment.course.location}</p></div>
-                                    <div><p>Time: ${enrollment.course.startTime} - ${enrollment.course.endTime}</p></div>
                                     <div><p>Professor: ${enrollment.course.teacher.name}</p></div>
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
@@ -183,10 +180,9 @@
                     <#list enrollments as enrollment>
                         <#if enrollment.course.days?contains("R")>
                             <div class="schedule_event" style="grid-row: ${enrollment.course.startGridRow} / ${enrollment.course.endGridRow};">
-                                <div>${enrollment.course.code?upper_case}</div>
+                                <div>${enrollment.course.code}</div>
                                 <div class="schedule-course-middle">
                                     <div><p>Location: ${enrollment.course.location}</p></div>
-                                    <div><p>Time: ${enrollment.course.startTime} - ${enrollment.course.endTime}</p></div>
                                     <div><p>Professor: ${enrollment.course.teacher.name}</p></div>
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
@@ -205,10 +201,9 @@
                     <#list enrollments as enrollment>
                         <#if enrollment.course.days?contains("F")>
                             <div class="schedule_event" style="grid-row: ${enrollment.course.startGridRow} / ${enrollment.course.endGridRow};">
-                                <div>${enrollment.course.code?upper_case}</div>
+                                <div>${enrollment.course.code}</div>
                                 <div class="schedule-course-middle">
                                     <div><p>Location: ${enrollment.course.location}</p></div>
-                                    <div><p>Time: ${enrollment.course.startTime} - ${enrollment.course.endTime}</p></div>
                                     <div><p>Professor: ${enrollment.course.teacher.name}</p></div>
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>

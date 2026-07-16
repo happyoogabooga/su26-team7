@@ -36,7 +36,7 @@
                         courses, and manage your enrollment.
                     </p>
 
-                    <button><a href = "student/login.html">Student Login</a></button>
+                    <button><a href = "/student/login">Student Login</a></button>
                 </div>
 
                 <div class="login-card">

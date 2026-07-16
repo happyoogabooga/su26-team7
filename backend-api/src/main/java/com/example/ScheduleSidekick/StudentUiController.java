@@ -40,6 +40,12 @@ public class StudentUiController {
         model.addAttribute("student", student);
         return "student/schedule";
     }
+    
+    @GetMapping("/deleteEnrollment/{studentid}/{enrollmentid}")
+    public String deleteEnrollment(@PathVariable long studentid, @PathVariable long enrollmentid){
+        boolean isdeleted = enrollmentService.deleteEnrollment(enrollmentid);
+        return "redirect:/student/schedule/" + studentid;
+    }
 
     @GetMapping("/course_catalog/{id}")
     public String course_catalog(@RequestParam(name = "subject", required = false, defaultValue = "None") String subject, 
@@ -52,8 +58,8 @@ public class StudentUiController {
             courses = courseService.getCourseByCode(subject);
         }
         
-        model.addAttribute("courseList", courses); // Passes courses to the template
-        model.addAttribute("selectedSubject", subject); // Keeps track of what was selected
+        model.addAttribute("courseList", courses); 
+        model.addAttribute("selectedSubject", subject);
         model.addAttribute("student", student);
         return "student/course_catalog";
     }
@@ -61,48 +67,6 @@ public class StudentUiController {
     @GetMapping("/login")
     public String login(){
         return "student/login";
-    }
-
-    @GetMapping("/editInformation/{id}")
-    public String editInformation(@PathVariable long id, Model model){
-        Student student = studentService.getStudentById(id);
-        model.addAttribute("student", student);
-        model.addAttribute("title", "Update Student:" + id);
-        return "student/edit_personal_information";
-    }
-
-    @GetMapping("/signup")
-    public String signup(Model model){
-        model.addAttribute("Student", new Student());
-        return "student/signup";
-    }
-
-    @GetMapping("/profile/{id}")
-    public String profile(@PathVariable long id,Model model){
-        Student student = studentService.getStudentById(id);
-        model.addAttribute("student", student);
-        return "student/profile";
-    }
-
-    @GetMapping("/class_details/{studentid}/{courseid}")
-    public String classDetails(@PathVariable long studentid, @PathVariable long courseid,Model model) {
-        Student student = studentService.getStudentById(studentid);
-        Course course = courseService.getCourseByid(courseid);
-        model.addAttribute("course", course);
-        model.addAttribute("student", student);
-        return "student/class_details";
-    }
-    
-    @GetMapping("/deleteEnrollment/{studentid}/{enrollmentid}")
-    public String deleteEnrollment(@PathVariable long studentid, @PathVariable long enrollmentid){
-        boolean isdeleted = enrollmentService.deleteEnrollment(enrollmentid);
-        return "redirect:/student/schedule/" + studentid;
-    }
-
-    @PostMapping("/save")
-    public String createStudent(Student student){
-        Student createdStudent = studentService.createAccount(student);
-        return "redirect:/student/schedule/" + createdStudent.getId();
     }
 
     @PostMapping("/loginAccount")
@@ -114,12 +78,48 @@ public class StudentUiController {
         return "student/login";
     }
 
+    @GetMapping("/profile/{id}")
+    public String profile(@PathVariable long id,Model model){
+        Student student = studentService.getStudentById(id);
+        model.addAttribute("student", student);
+        return "student/profile";
+    }
+
+    @GetMapping("/editInformation/{id}")
+    public String editInformation(@PathVariable long id, Model model){
+        Student student = studentService.getStudentById(id);
+        model.addAttribute("student", student);
+        model.addAttribute("title", "Update Student:" + id);
+        return "student/edit_personal_information";
+    }
+    
     @PostMapping("/editInformation/{id}")
-    public String editInformation(@PathVariable long id,@RequestParam("email") String email,@RequestParam("password") String password ,@RequestParam("name") String name){
+    public String editInformation(@PathVariable long id, @RequestParam("email") String email, @RequestParam("password") String password , @RequestParam("name") String name){
         Student student = studentService.updatePersonalInfo(id, email, password, name);
         return "redirect:/student/profile/" + id;
     }
 
+    @GetMapping("/signup")
+    public String signup(Model model){
+        model.addAttribute("Student", new Student());
+        return "student/signup";
+    }
+    
+    @PostMapping("/save")
+    public String createStudent(Student student){
+        Student createdStudent = studentService.createAccount(student);
+        return "redirect:/student/schedule/" + createdStudent.getId();
+    }
+    
+    @GetMapping("/class_details/{studentid}/{courseid}")
+    public String classDetails(@PathVariable long studentid, @PathVariable long courseid,Model model) {
+        Student student = studentService.getStudentById(studentid);
+        Course course = courseService.getCourseByid(courseid);
+        model.addAttribute("course", course);
+        model.addAttribute("student", student);
+        return "student/class_details";
+    }
+    
     @PostMapping("/enrollment/add/{studentid}/{courseid}")
     public String addEnrollment(@PathVariable long studentid, @PathVariable long courseid){
         Enrollment enrollment = enrollmentService.createEnrollmentByIds(studentid, courseid);

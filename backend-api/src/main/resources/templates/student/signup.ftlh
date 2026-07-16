@@ -6,7 +6,7 @@
     <body>
         <nav>
             <div class = "navbar">
-                <a href = "../index.html" class = "logo">Schedule Sidekick</a>
+                <a href = "/home" class = "logo">Schedule Sidekick</a>
             </div>
         </nav>
         <div class = "container">
@@ -45,7 +45,7 @@
                     </div>
                 </form>
                 <hr>
-                <small>Wrong page? go to <a href = "login.html">Login</a></small>
+                <small>Wrong page? go to <a href = "/student/login">Login</a></small>
             </div>
         </div>
     </body>

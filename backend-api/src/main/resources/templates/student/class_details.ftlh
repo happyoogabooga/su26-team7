@@ -42,7 +42,7 @@
                     <div>
                         <p>Course Description: ${course.description}</p>
                     </div>
-                    <div\>
+                    <div>
                         <p>Days Availiable</p>
                     
                         <#if course.days?contains("M")>
@@ -66,7 +66,6 @@
                         </#if>
                     </div>
                     <div>
-                        <!--on click, send a post request for an enrollment to the back end-->
                         <form action = "/student/enrollment/add/${student.id}/${course.id}" method = "POST">
                             <button class = "btn_outline" style = "width:10%; color:red" type = "submit">
                                 Add Course

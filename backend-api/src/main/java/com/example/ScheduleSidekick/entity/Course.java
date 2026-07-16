@@ -111,6 +111,6 @@ public class Course {
         LocalTime baseTime = LocalTime.of(8, 0);
         long minutesBetween = Duration.between(baseTime, this.endTime).toMinutes();
         
-        return (int) (minutesBetween / 15) + 2;
+        return (int) (minutesBetween / 15) + 1;
     }
 }
