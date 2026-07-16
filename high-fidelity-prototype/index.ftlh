@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Schedule Sidekick</title>
-        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="/index.css" />
     </head>
     <body>
         <nav>
@@ -13,7 +13,7 @@
             </div>
 
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/high-fidelity-prototype/index.ftlh">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Account</a></li>
             </ul>
@@ -36,7 +36,9 @@
                         courses, and manage your enrollment.
                     </p>
 
-                    <button><a href = "student/login.html">Student Login</a></button>
+                    <button>
+                        <a href="student/login.html">Student Login</a>
+                    </button>
                 </div>
 
                 <div class="login-card">

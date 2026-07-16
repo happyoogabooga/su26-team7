@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Schedule Sidekick - Create Class Offering</title>
+        <link rel="stylesheet" href="create-course.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Schedule Sidekick</h1>
+            <p>Create New Class Offering</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Course Information</h2>
+
+                <form>
+                    <label>Course Name</label>
+                    <input
+                        type="text"
+                        value="Introduction to Computer Science"
+                    />
+
+                    <label>Course Code</label>
+                    <input type="text" value="CSC 101" />
+
+                    <label>Term</label>
+                    <select>
+                        <option selected>Fall</option>
+                    </select>
+
+                    <label>Section</label>
+                    <input type="text" value="001" />
+
+                    <label>Meeting Days</label>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" checked /> Monday</label>
+                        <label><input type="checkbox" /> Tuesday</label>
+                        <label
+                            ><input type="checkbox" checked /> Wednesday</label
+                        >
+                        <label><input type="checkbox" /> Thursday</label>
+                        <label><input type="checkbox" /> Friday</label>
+                    </div>
+
+                    <label>Meeting Time</label>
+                    <input type="text" value="10:00 AM - 11:15 AM" />
+
+                    <label>Location</label>
+                    <input type="text" value="Petty Building 220" />
+
+                    <label>Maximum Enrollment</label>
+                    <input type="number" value="30" />
+
+                    <label>Course Description</label>
+
+                    <textarea rows="5">
+An introductory course covering programming fundamentals, algorithms, and problem solving using Java.
+        </textarea
+                    >
+
+                    <div class="buttons">
+                        <button class="cancel">
+                            <a
+                                href="/high-fidelity-prototype/teacher/teacher-dashboard.html"
+                                >Cancel</a
+                            >
+                        </button>
+                        <button class="create">
+                            <a
+                                href="/high-fidelity-prototype/teacher/teacher-dashboard.html"
+                                >Create Class</a
+                            >
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
