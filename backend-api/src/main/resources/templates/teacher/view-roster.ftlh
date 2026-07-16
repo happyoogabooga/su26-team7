@@ -38,10 +38,10 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Student ID</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Major</th>
+                            <th>Class Year</th>
+                            <th>Enrolled Hours</th>
                         </tr>
                     </thead>
 
