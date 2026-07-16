@@ -66,6 +66,9 @@
                         </#if>
                     </div>
                     <div>
+                        Section: ${course.section}
+                    </div>
+                    <div>
                         <form action = "/student/enrollment/add/${student.id}/${course.id}" method = "POST">
                             <button class = "btn_outline" style = "width:10%; color:red" type = "submit">
                                 Add Course

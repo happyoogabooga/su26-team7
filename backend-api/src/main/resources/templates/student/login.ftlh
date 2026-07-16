@@ -30,7 +30,7 @@
                         </div>
                     </form>
                     <hr>
-                    <small>Wrong page? got to <a href = "/student/signup">Sign up</a></small>
+                    <small>Don't have an account? go to <a href = "/student/signup">Sign up</a></small>
                 </div>
             </div>
         </div>
