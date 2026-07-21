@@ -31,6 +31,7 @@ public class TeacherService {
         Teacher existingTeacher = teacherRepository.findById(id).orElse(null);
         if (existingTeacher != null) {
             existingTeacher.setName(updatedTeacher.getName());
+            existingTeacher.setPassword(updatedTeacher.getPassword());
             existingTeacher.setDepartment(updatedTeacher.getDepartment());
             existingTeacher.setBio(updatedTeacher.getBio());
             return teacherRepository.save(existingTeacher);
@@ -48,6 +49,10 @@ public class TeacherService {
 
     public List<Teacher> searchTeacher(String keyword) {
         return teacherRepository.findByNameContainingIgnoreCaseOrBioContainingIgnoreCase(keyword, keyword);
+    }
+
+    public Teacher findByEmail(String email) {
+        return teacherRepository.findByEmail(email);
     }
 
 }
