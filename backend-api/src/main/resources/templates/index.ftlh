@@ -13,7 +13,7 @@
             </div>
 
             <ul>
-                <li><a href="/high-fidelity-prototype/index.ftlh">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Account</a></li>
             </ul>
@@ -36,9 +36,7 @@
                         courses, and manage your enrollment.
                     </p>
 
-                    <button>
-                        <a href="student/login.html">Student Login</a>
-                    </button>
+                    <button><a href = "/student/login">Student Login</a></button>
                 </div>
 
                 <div class="login-card">

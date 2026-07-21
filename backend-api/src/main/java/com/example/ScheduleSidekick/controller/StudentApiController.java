@@ -62,7 +62,7 @@ public class StudentApiController {
     @PutMapping("/{id}/editpersonalinfo")
     public ResponseEntity<Student> updatePersonalInformation(@PathVariable long id, @RequestBody Student updatedStudent){
         try {
-            Student student = studentService.updatePersonalInfo(id, updatedStudent);
+            Student student = studentService.updatePersonalInfo(id, updatedStudent.getEmail(), updatedStudent.getPassword(), updatedStudent.getName());
             return student != null ? ResponseEntity.ok(student) : ResponseEntity.notFound().build();
         } catch(RuntimeException e){
             return ResponseEntity.notFound().build();
