@@ -65,8 +65,13 @@
                             friday
                         </#if>
                     </div>
+
                     <div>
+                        <br>
                         Section: ${course.section}
+                    </div>
+                    <div>
+                        seats open: ${course.currentEnrollment - course.maxEnrollment} / ${course.maxEnrollment}
                     </div>
                     <div>
                         <form action = "/student/enrollment/add/${student.id}/${course.id}" method = "POST">
@@ -82,15 +87,33 @@
                     <h1>Questions About This Class</h1>
                 </div>
                 <div class = "card_body">
-                    <form method = "post" id = "courseQuestions">
+                    <form method = "POST" id = "courseQuestions" action = "/student/question">
+                        <input type = "hidden" name = "courseid" value = "${course.id}">
+                        <input type = "hidden" name = "studentid" value = "${student.id}">
+
                         <div class = "formstyle">
                             <label for = "courseQustions" class = "formLabel">Ask a Question</label>
-                            <textarea id = "shortDescription" name = "shortDescription" placeholder = "Ask a question about this class." rows = "3" required class = "formcontrol"></textarea>
+                            <textarea id = "shortDescription" name = "text" placeholder = "Ask a question about this class." rows = "3" required class = "formcontrol"></textarea>
                         </div>
                         <div class = "formstyle">
-                            <input type = "submit" class = "formSubmit">
+                            <input type = "submit" class = "formSubmit" value = "Submit">
                         </div>
                     </form>
+                    <h2>Existing Questions</h2>
+                    <#if questions?has_content>
+                        <#list questions as q>
+                            <div class = "card_body">
+                                <p><strong>Q:</strong> ${q.text}</p>
+                                <#if q.answer?has_content>
+                                    <p style="margin-left: 15px; color: green;"><strong>A:</strong> ${q.answer}</p>
+                                <#else>
+                                    <p style="margin-left: 15px; color: #777;"><em>No answer provided yet.</em></p>
+                                </#if>
+                            </div>
+                        </#list>
+                    <#else>
+                        <p>No questions asked for this class yet.</p>
+                    </#if>
                 </div>
             </div>
         </div>

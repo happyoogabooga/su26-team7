@@ -17,7 +17,7 @@ public class StudentService {
     public Student getStudentByEmailandPassword(String email, String password){
         return studentRepository.findByEmailAndPassword(email, password);
     }
-
+    
     public Student getStudentById(long id) {
         return studentRepository.findById(id).orElse(null);
     }
