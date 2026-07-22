@@ -10,7 +10,6 @@
                 <ul class = "navlinks">
                     <li> <a href = "/student/schedule/${student.id}" style = "color:white">Schedule</a>
                     <li> <a href = "/student/course_catalog/${student.id}" style = "color:white">Course catalog</a>
-                    <li> <a href = "/studentCurrent_courses.html" style = "color:white">Current Courses</a></li>
                     <li> <a href = "/student/profile/${student.id}" style = "color:white">Profile</a>
                     <li> <a href = "/student/login" style = "color:white">LogOut</a>
                 </ul>
@@ -33,7 +32,7 @@
                         Class year: ${student.classYear}
                     </div>
                     <div>
-                        Credits taken: ${student.enrolledHours}
+                        Enrolled hours: ${student.enrolledHours}
                     </div>
                 </div>
                 <div>
