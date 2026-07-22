@@ -30,7 +30,6 @@
                         <div class = "card_body_grid">
                             <div>Name: ${student.name}</div>
                             <div>Email: ${student.email} </div>
-                            <div>Courses taken: ${student.enrolledHours}</div>
                             <div>Class Year: ${student.classYear}</div>
                         </div>
                     </div>

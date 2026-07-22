@@ -49,11 +49,13 @@ public class EnrollmentService {
         Student student = studentService.getStudentById(studentid);
         Course course =  courseService.getCourseByid(courseid);
 
-
+        
         enrollment.setStudent(student);
         enrollment.setCourse(course);
 
         Enrollment Saved = enrollmentRepository.save(enrollment);
+
+        student.setEnrolledHours(getEnrollmentByStudentId(studentid).size()*3);
         courseService.syncCurrentEnrollment(courseid);
 
         return Saved;
@@ -62,10 +64,16 @@ public class EnrollmentService {
     public boolean deleteEnrollment(long id) {
         if(enrollmentRepository.existsById(id)){
             Enrollment enrollment = getByEnrollmentId(id);
+            long studentid = enrollment.getStudent().getId();
             long courseid = enrollment.getCourse().getId();
 
             enrollmentRepository.deleteById(id);
             courseService.syncCurrentEnrollment(courseid);
+
+            Student student = studentService.getStudentById(studentid);
+            int updatedHours = getEnrollmentByStudentId(studentid).size() * 3;
+            student.setEnrolledHours(updatedHours);
+            studentService.updateStudent(studentid, student);
 
             return true;
         }
