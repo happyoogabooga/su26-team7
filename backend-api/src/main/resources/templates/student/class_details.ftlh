@@ -74,7 +74,7 @@
                     </div>
                     <div>
                         <!--if the the student is already enrolled, they cant enroll again-->
-                        <#if codeCheck?seq_contains(course.code)>
+                        <#if codeCheck?seq_contains(course.code) || course.currentEnrollment == course.maxEnrollment>
                         <#else>
                         <form action = "/student/enrollment/add/${student.id}/${course.id}" method = "POST">
                             <button class = "btn_outline" style = "width:10%; color:red" type = "submit">
