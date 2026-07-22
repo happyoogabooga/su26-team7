@@ -121,7 +121,9 @@ public class StudentUiController {
         Student student = studentService.getStudentById(studentid);
         Course course = courseService.getCourseByid(courseid);
         List<Question> question = questionService.searchQuestionsByCourseId(courseid);
+        List<String> codesbystudent = studentService.courseCodesByStudentId(studentid);
 
+        model.addAttribute("codeCheck", codesbystudent);
         model.addAttribute("questions", question);
         model.addAttribute("course", course);
         model.addAttribute("student", student);

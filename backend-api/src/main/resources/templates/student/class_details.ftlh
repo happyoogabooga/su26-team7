@@ -74,11 +74,16 @@
                         seats open: ${course.maxEnrollment - course.currentEnrollment}/ ${course.maxEnrollment}
                     </div>
                     <div>
+                        <!--if the the student is already enrolled, they cant enroll again-->
+                        <#if codeCheck?seq_contains(course.code)>
+                        <#else>
                         <form action = "/student/enrollment/add/${student.id}/${course.id}" method = "POST">
                             <button class = "btn_outline" style = "width:10%; color:red" type = "submit">
                                 Add Course
                             </button>
                         </form>
+                        </#if>
+
                     </div>
                 </div>
             </div>
