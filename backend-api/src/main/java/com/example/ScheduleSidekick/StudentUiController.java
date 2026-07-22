@@ -40,7 +40,7 @@ public class StudentUiController {
     public String schedule(@PathVariable long id, Model model){
         Student student = studentService.getStudentById(id);
         List<Enrollment> enrollments = enrollmentService.getEnrollmentsByStudentId(id);
-
+        
         model.addAttribute("enrollments", enrollments);
         model.addAttribute("student", student);
         return "student/schedule";
@@ -121,7 +121,7 @@ public class StudentUiController {
         Student student = studentService.getStudentById(studentid);
         Course course = courseService.getCourseByid(courseid);
         List<Question> question = questionService.searchQuestionsByCourseId(courseid);
-        
+
         model.addAttribute("questions", question);
         model.addAttribute("course", course);
         model.addAttribute("student", student);

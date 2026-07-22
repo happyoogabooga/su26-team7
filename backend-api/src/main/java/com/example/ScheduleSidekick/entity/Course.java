@@ -67,7 +67,7 @@ public class Course {
     private int currentEnrollment;
 
     public Course(String name, String code, String section, String days, String term, LocalTime startTime,
-            LocalTime endTime, String location, String description, int maxEnrollment, int currentEnrollment) {
+            LocalTime endTime, String location, String description, int maxEnrollment) {
         this.name = name;
         this.code = code;
         this.section = section;
@@ -78,7 +78,6 @@ public class Course {
         this.location = location;
         this.description = description;
         this.maxEnrollment = maxEnrollment;
-        this.currentEnrollment = currentEnrollment;
     }
 
     @OneToMany(mappedBy = "course")
@@ -113,4 +112,5 @@ public class Course {
         
         return (int) (minutesBetween / 15) + 1;
     }
+
 }

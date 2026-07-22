@@ -38,7 +38,9 @@ public class EnrollmentService {
     }
 
     public Enrollment createEnrollment(Enrollment enrollment) {
-        return enrollmentRepository.save(enrollment);
+        Enrollment saved = enrollmentRepository.save(enrollment);
+        courseService.syncCurrentEnrollment(enrollment.getCourse().getId());
+        return saved;
     }
 
     public Enrollment createEnrollmentByIds(long studentid, long courseid){
@@ -51,12 +53,20 @@ public class EnrollmentService {
         enrollment.setStudent(student);
         enrollment.setCourse(course);
 
-        return enrollmentRepository.save(enrollment);
+        Enrollment Saved = enrollmentRepository.save(enrollment);
+        courseService.syncCurrentEnrollment(courseid);
+
+        return Saved;
     }
 
     public boolean deleteEnrollment(long id) {
         if(enrollmentRepository.existsById(id)){
+            Enrollment enrollment = getByEnrollmentId(id);
+            long courseid = enrollment.getCourse().getId();
+
             enrollmentRepository.deleteById(id);
+            courseService.syncCurrentEnrollment(courseid);
+
             return true;
         }
         return false;

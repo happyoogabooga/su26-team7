@@ -71,7 +71,7 @@
                         Section: ${course.section}
                     </div>
                     <div>
-                        seats open: ${course.currentEnrollment - course.maxEnrollment} / ${course.maxEnrollment}
+                        seats open: ${course.maxEnrollment - course.currentEnrollment}/ ${course.maxEnrollment}
                     </div>
                     <div>
                         <form action = "/student/enrollment/add/${student.id}/${course.id}" method = "POST">

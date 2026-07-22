@@ -124,7 +124,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
