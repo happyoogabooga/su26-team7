@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 
 import com.example.ScheduleSidekick.entity.Course;
 import com.example.ScheduleSidekick.repository.CourseRepository;
-
+import com.example.ScheduleSidekick.repository.EnrollmentRepository;
 @Service
 public class CourseService {
     private final CourseRepository courseRepository;
-
-    public CourseService(CourseRepository courseRepository) {
+    private final EnrollmentRepository enrollmentRepository;
+    public CourseService(CourseRepository courseRepository, EnrollmentRepository enrollmentRepository) {
         this.courseRepository = courseRepository;
+        this.enrollmentRepository = enrollmentRepository;
     }
 
     public List<Course> getAllCourses() {
@@ -35,6 +36,7 @@ public class CourseService {
 
     // create course
     public Course createCourse(Course course) {
+
         return courseRepository.save(course);
     }
 
@@ -57,12 +59,23 @@ public class CourseService {
         return null;
     }
 
-    // Delte Course
+    // Delete Course
     public boolean DeleteCourse(long id) {
         if (courseRepository.existsById(id)) {
             courseRepository.deleteById(id);
             return true;
         }
         return false;
+    }
+
+    public Course syncCurrentEnrollment(long courseId) {
+        Course course = courseRepository.findById(courseId).orElse(null);
+        if (course != null) {
+            int count = enrollmentRepository.findByCourseId(courseId).size();
+            
+            course.setCurrentEnrollment(count);
+            return courseRepository.save(course);
+        }
+        return null;
     }
 }

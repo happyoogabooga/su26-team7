@@ -10,7 +10,6 @@
                 <ul class = "navlinks">
                     <li> <a href = "/student/schedule/${student.id}" style = "color:white">Schedule</a>
                     <li> <a href = "/student/course_catalog/${student.id}" style = "color:white">Course catalog</a>
-                    <li> <a href = "/studentCurrent_courses.html" style = "color:white">Current Courses</a></li>
                     <li> <a href = "/student/profile/${student.id}" style = "color:white">Profile</a>
                     <li> <a href = "/student/login" style = "color:white">LogOut</a>
                 </ul>
@@ -29,11 +28,11 @@
                         <form id = "editPersonalInformation" action = "/student/editInformation/${student.id}" method = "POST">
                             <div class = "formstyle">
                                 <label for = "first_name" class = "formLabel">Name:</label>
-                                <input type = "text" id = "Name" placeholder = "Jerry moyer" required class = "formcontrol" name = "name" value = "${student.name}">
+                                <input type = "text" id = "Name" placeholder = "e.g., Jerry moyer" required class = "formcontrol" name = "name" value = "${student.name}">
                             </div>
                             <div class = "formstyle">
                                 <label for = "Email" class = "formLabel">Email:</label>
-                                <input type = "text" id = "Email" placeholder = "jerry@gmail.com" required class = "formcontrol" name = "email" value = "${student.email}">
+                                <input type = "text" id = "Email" placeholder = "e.g., jerry@gmail.com" required class = "formcontrol" name = "email" value = "${student.email}">
                             </div>
                             <div class = "formstyle">
                                 <label for = "Password" class = "formLabel">Password:</label>

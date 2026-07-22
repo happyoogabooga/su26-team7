@@ -14,7 +14,7 @@ public class QuestionService {
     public QuestionService(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
     }
-
+    
     public Question getQuestionById(long id) {
         return questionRepository.findById(id).orElse(null);
     }

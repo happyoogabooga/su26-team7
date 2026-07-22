@@ -10,7 +10,6 @@
                 <ul class = "navlinks">
                     <li> <a href = "/student/schedule/${student.id}" style = "color:white">Schedule</a>
                     <li> <a href = "/student/course_catalog/${student.id}" style = "color:white">Course catalog</a>
-                    <li> <a href = "/studentCurrent_courses.html" style = "color:white">Current Courses</a></li>
                     <li> <a href = "/student/profile/${student.id}" style = "color:white">Profile</a>
                     <li> <a href = "/student/login" style = "color:white">LogOut</a>
                 </ul>
@@ -30,8 +29,8 @@
                         <div class = "card_body_grid">
                             <div>Name: ${student.name}</div>
                             <div>Email: ${student.email} </div>
-                            <div>Courses taken: ${student.enrolledHours}</div>
                             <div>Class Year: ${student.classYear}</div>
+                            <div>Enrolled Hours: ${student.enrolledHours}</div>
                         </div>
                     </div>
                 </div>

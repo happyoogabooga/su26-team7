@@ -10,7 +10,6 @@
                 <ul class = "navlinks">
                     <li> <a href = "/student/schedule/${student.id}" style = "color:white">Schedule</a>
                     <li> <a href = "/student/course_catalog/${student.id}" style = "color:white">Course catalog</a>
-                    <li> <a href = "/studentCurrent_courses.html" style = "color:white">Current Courses</a></li>
                     <li> <a href = "/student/profile/${student.id}" style = "color:white">Profile</a>
                     <li> <a href = "/student/login" style = "color:white">LogOut</a>
                 </ul>
@@ -33,7 +32,7 @@
                         Class year: ${student.classYear}
                     </div>
                     <div>
-                        Credits taken: ${student.enrolledHours}
+                        Enrolled hours: ${student.enrolledHours}
                     </div>
                 </div>
                 <div>
@@ -124,7 +123,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
@@ -145,7 +144,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
@@ -166,7 +165,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
@@ -187,7 +186,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>
@@ -208,7 +207,7 @@
                                     <div><p>Seats open: ${enrollment.course.maxEnrollment - enrollment.course.currentEnrollment}</p></div>
                                 </div>
                                 <div style="margin-top:auto; display:inline-flex">
-                                    <div><a href="/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
+                                    <div><a href="/student/class_details/${student.id}/${enrollment.course.id}">Details</a></div>
                                     <div class="schedule_drop_course"><a href = /student/deleteEnrollment/${student.id}/${enrollment.id}>Drop class</a></div>
                                 </div>
                             </div>

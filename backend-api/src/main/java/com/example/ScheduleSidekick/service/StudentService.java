@@ -2,8 +2,12 @@ package com.example.ScheduleSidekick.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import java.util.ArrayList;
 
 import com.example.ScheduleSidekick.entity.Student;
+import com.example.ScheduleSidekick.entity.Enrollment;
+
+
 import com.example.ScheduleSidekick.repository.StudentRepository;
 
 @Service
@@ -17,7 +21,7 @@ public class StudentService {
     public Student getStudentByEmailandPassword(String email, String password){
         return studentRepository.findByEmailAndPassword(email, password);
     }
-
+    
     public Student getStudentById(long id) {
         return studentRepository.findById(id).orElse(null);
     }
@@ -69,5 +73,20 @@ public class StudentService {
             return true;
         }
         return false;
+    }
+    public List<String> courseCodesByStudentId(long id) {
+        Student student = getStudentById(id);
+        if (student == null || student.getEnrollment() == null) {
+            return new ArrayList<>();
+        }
+
+        List<String> listOfCodes = new ArrayList<>();
+        for (int i = 0; i < student.getEnrollment().size(); i++) {
+            Enrollment enrollment = student.getEnrollment().get(i);
+            if (enrollment != null && enrollment.getCourse() != null) {
+                listOfCodes.add(enrollment.getCourse().getCode());
+            }
+        }
+        return listOfCodes;
     }
 }
