@@ -61,54 +61,64 @@
                 <section class="questions">
                     <h2>Student Questions</h2>
 
+                    <#list questionList as questions>
                     <div class="question-card">
                         <div class="question-header">
-                            <h3>Emily Carter</h3>
-                            <span>Answered</span>
+                            <span><#if questions.answer??>
+                                        Answered
+                                  <#else>
+                                      Awaiting Response
+                                  </#if></span>
                         </div>
 
                         <p class="question-text">
-                            Will homework submitted a few days late receive
-                            partial credit?
+                            ${questions.text}
                         </p>
 
                         <div class="answer-box">
                             <strong>Reply:</strong>
                             <p>
-                                Yes. Assignments submitted within three days of
-                                the due date will receive up to 90% credit.
-                                After that, no late submissions will be
-                                accepted.
+                                <#if questions.answer??>
+                                        ${questions.answer}
+                                  <#else>
+                                      Awaiting Answer
+                                  </#if>
                             </p>
                         </div>
+
+                        <form method="POST" action="/teacher/question/${questions.id}/reply">
+                            <label for="reply"></label>
+
+                            <input
+                                type="hidden"
+                                name="courseid"
+                                value="${course.id}"
+                            />
+
+                            <input
+                                type="hidden"
+                                name="text"
+                                value="${questions.text}"
+                            />
+
+                            <textarea
+                                id="reply"
+                                name="answer"
+                                rows="4"
+                                placeholder="Type answer here..."
+                            ></textarea>
+
+                            <button type="submit" class="reply-btn">
+                                Send Reply
+                            </button>
+                        </form>
                     </div>
-
-                    <div class="question-card">
-                        <div class="question-header">
-                            <h3>Michael Johnson</h3>
-                            <span>Awaiting Response</span>
-                        </div>
-
-                        <p class="question-text">
-                            Could you elaborate on how much writing will be
-                            required for this class?
-                        </p>
-
-                        <label for="reply">Reply</label>
-
-                        <textarea
-                            id="reply"
-                            rows="4"
-                            placeholder="Type your response here..."
-                        ></textarea>
-
-                        <button class="reply-btn">Send Reply</button>
-                    </div>
+                    </#list>
                 </section>
 
                 <div class="buttons">
                     <button>
-                        <a href="teacher-dashboard.html">Back to Dashboard</a>
+                        <a href="/teacher/teacher-dashboard">Back to Dashboard</a>
                     </button>
                 </div>
             </div>
