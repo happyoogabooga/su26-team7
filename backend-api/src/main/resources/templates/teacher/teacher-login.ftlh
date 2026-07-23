@@ -45,7 +45,7 @@
                 <div class="signup">
                     <p>
                         Don't have an account?
-                        <a href="create-teacher.html">Create One</a>
+                        <a href="/teacher/new-teacher">Create One</a>
                     </p>
                 </div>
             </div>
