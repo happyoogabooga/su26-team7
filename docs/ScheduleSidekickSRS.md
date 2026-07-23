@@ -159,7 +159,7 @@
 
 ## 3. Non‑Functional Requirements (make them measurable)
 
-- **Performance:** 95% of discovery responses should be returned in < 4 seconds under typical load.
+- **Performance:** 95% of discovery responses should be returned in < 3 seconds under typical load.
 - **Availability/Reliability:** The system should be availiable 99% of the time.
 - **Usability:** New users should be able to add classes within 2 minutes of signing up.
 

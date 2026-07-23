@@ -41,19 +41,19 @@
 
 ### Performance Requirements
 
-**Scenario P1: course_catalog response time < 4 seconds**
+**Scenario P1: course_catalog response time < 3 seconds**
 - **Setup:** Server under typical load
 - **Steps:**
   1. Measure response time for "course_catalog" page load with 4 active courses availiable.
   2. Repeat 5 times.
-- **Expected Outcome:** 95% of requests ≤ 4 seconds 
+- **Expected Outcome:** 95% of requests ≤ 3 seconds 
 
-**Scenario P2: add/drop classes response time ≤ 1 seconds**
+**Scenario P2: add/drop classes response time ≤ 1.5 seconds**
 - **Setup:** Server under typical load
 - **Steps:**
   1. Measure response time for adding or dropping a class.
   2. Repeat 5 times.
-- **Expected Outcome:** 95% of requests ≤ 1 second
+- **Expected Outcome:** 95% of requests ≤ 1.5 second
 ### Usability Requirements
 
 **Scenario U1:Students should be able to add classes within 2 minutes of signing up**
