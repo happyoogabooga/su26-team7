@@ -15,7 +15,7 @@
 
 ## App Functions
 1. Student:
-    1. Create/modify customer profile - After the student is registered, they can view planned classes and schedule for the semester.
+    1. Create/modify customer profile - After the student is registered, they can view planned classes and their schedule for the upcoming semester.
     2. View available services - Students will be able to view open classes that teachers have posted.
     3. Subscribe to available services - Students will be able to sign up for classes that teachers have posted.
     4. Write questions for subscribed services - Students will be able to ask questions about the class.
