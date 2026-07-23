@@ -45,7 +45,7 @@
                     </div>
                 </form>
                 <hr>
-                <small>Wrong page? go to <a href = "/student/login">Login</a></small>
+                <small>Already have an account? go to <a href = "/student/login">Login</a></small>
             </div>
         </div>
     </body>
