@@ -41,12 +41,19 @@
 
 ### Performance Requirements
 
-**Scenario P1: Discover page response time < 4 seconds**
+**Scenario P1: course_catalog response time < 4 seconds**
 - **Setup:** Server under typical load
 - **Steps:**
   1. Measure response time for "course_catalog" page load with 4 active courses availiable.
+  2. Repeat 5 times.
 - **Expected Outcome:** 95% of requests ≤ 4 seconds 
 
+**Scenario P2: add/drop classes response time ≤ 1 seconds**
+- **Setup:** Server under typical load
+- **Steps:**
+  1. Measure response time for adding or dropping a class.
+  2. Repeat 5 times.
+- **Expected Outcome:** 95% of requests ≤ 1 second
 ### Usability Requirements
 
 **Scenario U1:Students should be able to add classes within 2 minutes of signing up**
@@ -55,11 +62,4 @@
   1. Student navigates to courses.
   2. Student clicks on a class.
   3. Student adds a class.
-- **Expected Outcome:** 
-
-**Scenario U2:**
-- **Setup:** 
-- **Steps:**
-  1. x
-  2. y
-- **Expected Outcome:** 
+- **Expected Outcome:** Time to register and add a class ≤ 2 minutes

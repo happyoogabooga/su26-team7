@@ -161,8 +161,7 @@
 
 - **Performance:** 95% of discovery responses should be returned in < 4 seconds under typical load.
 - **Availability/Reliability:** The system should be availiable 99% of the time.
-- **Security/Privacy:** The system must implement secure authentication and authorization mechanisms. All sensitive data should be encrypted in transit and at rest.
-- **Usability:** New users should be able to sign up within 5 minutes.
+- **Usability:** New users should be able to add classes within 2 minutes of signing up.
 
 ---
 
