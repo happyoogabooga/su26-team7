@@ -46,7 +46,7 @@
                     <h2>My Classes</h2>
 
                     <a
-                        href="/high-fidelity-prototype/teacher/create-course.html"
+                        href="/teacher/${id}/new-course"
                         class="button"
                     >
                         + Create New Class
