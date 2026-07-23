@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.ScheduleSidekick.entity.Course;
 import com.example.ScheduleSidekick.entity.Enrollment;
+import com.example.ScheduleSidekick.entity.Question;
 import com.example.ScheduleSidekick.entity.Teacher;
 import com.example.ScheduleSidekick.service.CourseService;
 import com.example.ScheduleSidekick.service.EnrollmentService;
+import com.example.ScheduleSidekick.service.QuestionService;
 import com.example.ScheduleSidekick.service.TeacherService;
 
 import jakarta.servlet.http.HttpSession;
@@ -25,12 +28,14 @@ public class TeacherUiController {
     private final TeacherService teacherService;
     private final CourseService courseService;
     private final EnrollmentService enrollmentService;
+    private final QuestionService questionService;
 
     public TeacherUiController(TeacherService teacherService, CourseService courseService,
-            EnrollmentService enrollmentService) {
+            EnrollmentService enrollmentService, QuestionService questionService) {
         this.teacherService = teacherService;
         this.courseService = courseService;
         this.enrollmentService = enrollmentService;
+        this.questionService = questionService;
     }
 
     @GetMapping("/home")
@@ -123,9 +128,41 @@ public class TeacherUiController {
     public String roster(@PathVariable long courseid, Model model) {
         Course course = courseService.getCourseByid(courseid);
         List<Enrollment> enrollments = enrollmentService.getEnrollmentByCourseId(courseid);
+        List<Question> questions = questionService.searchQuestionsByCourseId(courseid);
         model.addAttribute("course", course);
         model.addAttribute("enrollmentList", enrollments);
+        model.addAttribute("questionList", questions);
         return "teacher/view-roster";
+    }
+
+    @GetMapping("/{teacherid}/new-course")
+    public String createCourse(@PathVariable long teacherid, Model model) {
+        Teacher teacher = teacherService.getTeacherById(teacherid);
+        model.addAttribute("course", new Course());
+        model.addAttribute("pageTitle", "Create New Course");
+        model.addAttribute("teacher", teacher);
+        return "teacher/create-course";
+    }
+
+    @PostMapping("/save-course")
+    public String createCourse(Course course, @RequestParam("teacherid") long teacherid) {
+        Teacher teacher = teacherService.getTeacherById(teacherid);
+        course.setTeacher(teacher);
+        Course createdCourse = courseService.createCourse(course);
+        if (createdCourse != null) {
+            return "redirect:/teacher/profile/" + createdCourse.getTeacher().getId();
+        }
+        return "redirect:/teacher/new?error=true";
+    }
+
+    @PostMapping("/question/{id}/reply")
+    public String answerQuestion(@PathVariable long id, Question updatedQuestion,
+            @RequestParam("courseid") long courseid) {
+        Question question = questionService.updateQuestion(id, updatedQuestion);
+        if (question != null) {
+            return "redirect:/teacher/roster/" + courseid;
+        }
+        return "redirect:/teacher/view-roster" + "?error=true";
     }
 
 }

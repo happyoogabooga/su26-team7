@@ -11,10 +11,10 @@
             <h2>Schedule Sidekick</h2>
 
             <ul>
-                <li><a href="/high-fidelity-prototype/index.html">Home</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/teacher/teacher-dashboard">Profile</a></li>
                 <li>
-                    <a href="/high-fidelity-prototype/index.html">Logout</a>
+                    <a href="/index">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -66,39 +66,6 @@
                         </a>
                     </div>
                     </#list>
-
-                    <!-- <div class="class-card">
-                        <h3>CSC 230</h3>
-                        <p>Web Development</p>
-                        <p>Section 002</p>
-                        <p>28 / 30 Students</p>
-
-                        <a href="view-roster.html" class="button small">
-                            View Roster
-                        </a>
-                    </div> -->
-
-                    <!-- <div class="class-card">
-                        <h3>CSC 330</h3>
-                        <p>Data Structures</p>
-                        <p>Section 001</p>
-                        <p>29 / 30 Students</p>
-
-                        <a href="view-roster.html" class="button small">
-                            View Roster
-                        </a>
-                    </div> -->
-
-                    <!-- <div class="class-card">
-                        <h3>CSC 340</h3>
-                        <p>Software Engineering</p>
-                        <p>Section 001</p>
-                        <p>22 / 30 Students</p>
-
-                        <a href="view-roster.html" class="button small">
-                            View Roster
-                        </a>
-                    </div> -->
                 </div>
             </section>
         </main>
